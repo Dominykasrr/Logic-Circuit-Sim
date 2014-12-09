@@ -11,7 +11,7 @@ using System.Text;
 
 public class StaticSource : Source
 {
-	public static IEnumerable<Image> IMG
+	public static Image[] IMG
 	{
 		get;
 		set;

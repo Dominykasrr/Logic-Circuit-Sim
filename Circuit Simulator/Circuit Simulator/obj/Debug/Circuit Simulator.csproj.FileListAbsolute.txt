@@ -6,3 +6,6 @@ c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Cir
 c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit Simulator.csproj.GenerateResource.Cache
 c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit Simulator.exe
 c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit Simulator.pdb
+C:\Users\Wéber Marci\Documents\GitHub\Logic-Circuit-Sim\Circuit Simulator\Circuit Simulator\bin\Debug\Circuit Simulator.exe.config
+C:\Users\Wéber Marci\Documents\GitHub\Logic-Circuit-Sim\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit Simulator.exe
+C:\Users\Wéber Marci\Documents\GitHub\Logic-Circuit-Sim\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit Simulator.pdb
