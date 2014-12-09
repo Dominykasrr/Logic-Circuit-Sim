@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2014-12-09T22:52:46" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2014-12-09T22:52:46" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2014-12-09T22:52:46" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-12-09T22:52:46" Importance="Diagnostic" Text="ProjectPath = ..\CircuitSimLib\CircuitSimLib.csproj" />
+  <Message Timestamp="2014-12-09T22:52:46" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-12-09T22:52:46" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-12-09T22:52:46" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-12-09T22:52:46" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-12-09T22:52:46" Importance="Medium" Text="CircuitSim's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'CircuitSim::Sink' -  (Class), 'CircuitSim::Form' -  (Class), 'CircuitSim::Circuit' -  (Class), 'CircuitSim::Element' -  (Class), 'CircuitSim::OutputPoint' -  (Class), 'CircuitSim::OrGate' -  (Class), 'CircuitSim::Gate' -  (Class), 'CircuitSim::InputPoint' -  (Class), 'CircuitSim::ConnectionPoint' -  (Class), 'CircuitSim::AndGate' -  (Class), 'CircuitSim::StaticSource' -  (Class), 'CircuitSim::Source' -  (Class), 'CircuitSim::DynamicSource' -  (Class) " />
+  <Message Timestamp="2014-12-09T22:52:58" Importance="Medium" Text="Project Added: C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\CircuitSimLib.csproj" />
+  <Message Timestamp="2014-12-09T22:52:58" Importance="Medium" Text="'CircuitSim::Sink' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\Sink.cs" />
+  <Message Timestamp="2014-12-09T22:52:58" Importance="Medium" Text="'CircuitSim::Form' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\Form.cs" />
+  <Message Timestamp="2014-12-09T22:52:58" Importance="Medium" Text="'CircuitSim::Circuit' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\Circuit.cs" />
+  <Message Timestamp="2014-12-09T22:52:59" Importance="Medium" Text="'CircuitSim::Element' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\Element.cs" />
+  <Message Timestamp="2014-12-09T22:53:00" Importance="Medium" Text="'CircuitSim::OutputPoint' -  (Class) : success (file created) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\OutputPoint.cs" />
+  <Message Timestamp="2014-12-09T22:53:00" Importance="Medium" Text="'CircuitSim::OrGate' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\OrGate.cs" />
+  <Message Timestamp="2014-12-09T22:53:00" Importance="Medium" Text="'CircuitSim::Gate' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\Gate.cs" />
+  <Message Timestamp="2014-12-09T22:53:01" Importance="Medium" Text="'CircuitSim::InputPoint' -  (Class) : success (file created) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\InputPoint.cs" />
+  <Message Timestamp="2014-12-09T22:53:01" Importance="Medium" Text="'CircuitSim::ConnectionPoint' -  (Class) : success (file created) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\ConnectionPoint.cs" />
+  <Message Timestamp="2014-12-09T22:53:02" Importance="Medium" Text="'CircuitSim::AndGate' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\AndGate.cs" />
+  <Message Timestamp="2014-12-09T22:53:02" Importance="Medium" Text="'CircuitSim::StaticSource' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\StaticSource.cs" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Medium" Text="'CircuitSim::Source' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\Source.cs" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Medium" Text="'CircuitSim::DynamicSource' -  (Class) : success (file replaced) - C:\Users\winshitster\Documents\Visual Studio 2013\Projects\Circuit Simulator\CircuitSimLib\GeneratedCode\DynamicSource.cs" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Diagnostic" Text="ProjectPath = ..\CircuitSimLib\CircuitSimLib.csproj" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Medium" Text="CircuitSim's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'CircuitSim::Sink' -  (Class), 'CircuitSim::Form' -  (Class), 'CircuitSim::Circuit' -  (Class), 'CircuitSim::Element' -  (Class), 'CircuitSim::OutputPoint' -  (Class), 'CircuitSim::OrGate' -  (Class), 'CircuitSim::Gate' -  (Class), 'CircuitSim::InputPoint' -  (Class), 'CircuitSim::ConnectionPoint' -  (Class), 'CircuitSim::AndGate' -  (Class), 'CircuitSim::StaticSource' -  (Class), 'CircuitSim::Source' -  (Class), 'CircuitSim::DynamicSource' -  (Class) " />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Diagnostic" Text="'CircuitSim::Sink' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:03" Importance="Diagnostic" Text="'CircuitSim::Form' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::Circuit' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::Element' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::OutputPoint' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::OrGate' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::Gate' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::InputPoint' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::ConnectionPoint' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::AndGate' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::StaticSource' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::Source' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::DynamicSource' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="The selection included 16 elements which were not bound to a template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::' -  (Association): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::' -  (Association): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::' -  (Association): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'009d3031-2635-4ad7-ae44-049066355195' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'1fc78b9d-e075-4925-8568-ea634d454a3f' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::' -  (Association): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'08509701-7a49-4375-a29b-10c7f5ab01b3' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::' -  (Association): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'ee541346-96fc-4f4e-aa4d-bd12d3215de9' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::' -  (Association): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'CircuitSim::' -  (Association): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'63bd4171-7acf-49bf-b06f-fe2a78684566' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'6082e1e0-b5b3-4e2a-b91d-e7d9364dff0f' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'7dbdf683-c4fd-44b5-a7af-31c977ecfcbb' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'7ec8b792-daba-4103-b6c3-553784e782c3' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="Diagnostic" Text="'bba4582b-89da-457b-ac37-ca644c97ea1d' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-09T22:53:04" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
