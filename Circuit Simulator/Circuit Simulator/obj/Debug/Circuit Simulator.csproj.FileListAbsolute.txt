@@ -1,8 +1,0 @@
-c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\bin\Debug\Circuit Simulator.exe.config
-c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\bin\Debug\Circuit Simulator.exe
-c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\bin\Debug\Circuit Simulator.pdb
-c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit Simulator.csprojResolveAssemblyReference.cache
-c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit_Simulator.Properties.Resources.resources
-c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit Simulator.csproj.GenerateResource.Cache
-c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit Simulator.exe
-c:\users\winshitster\documents\visual studio 2013\Projects\Circuit Simulator\Circuit Simulator\obj\Debug\Circuit Simulator.pdb
