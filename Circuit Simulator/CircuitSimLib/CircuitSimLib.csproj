@@ -41,11 +41,14 @@
   <ItemGroup>
     <Compile Include="GeneratedCode\AndGate.cs" />
     <Compile Include="GeneratedCode\Circuit.cs" />
+    <Compile Include="GeneratedCode\ConnectionPoint.cs" />
     <Compile Include="GeneratedCode\DynamicSource.cs" />
     <Compile Include="GeneratedCode\Element.cs" />
     <Compile Include="GeneratedCode\Form.cs" />
     <Compile Include="GeneratedCode\Gate.cs" />
+    <Compile Include="GeneratedCode\InputPoint.cs" />
     <Compile Include="GeneratedCode\OrGate.cs" />
+    <Compile Include="GeneratedCode\OutputPoint.cs" />
     <Compile Include="GeneratedCode\Sink.cs" />
     <Compile Include="GeneratedCode\Source.cs" />
     <Compile Include="GeneratedCode\StaticSource.cs" />
