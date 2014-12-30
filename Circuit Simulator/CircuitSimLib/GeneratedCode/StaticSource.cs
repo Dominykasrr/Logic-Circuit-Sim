@@ -19,7 +19,15 @@ public class StaticSource : Source
     {
         Img[0] = CircuitSimLib.Properties.Resources.source;
         Img[1] = CircuitSimLib.Properties.Resources.source_on;
-    } 
+    }
+
+    /// <summary>
+    /// Toggles the state of the StaticSource
+    /// </summary>
+    public void Toggle()
+    {
+        this.State = !this.State;
+    }
 
 }
 

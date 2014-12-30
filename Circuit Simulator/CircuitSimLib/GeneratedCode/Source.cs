@@ -21,7 +21,7 @@ public abstract class Source : Element
     public Source()
     {
         this.State = false;
-        this.Output = null;
+        this.Output = new OutputPoint(this.X, this.Y, 25);
     }
 }
 
