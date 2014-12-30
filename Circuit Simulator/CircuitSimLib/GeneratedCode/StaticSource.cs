@@ -17,8 +17,9 @@ public class StaticSource : Source
     public StaticSource()
         : base()
     {
-        Img[0] = CircuitSimLib.Properties.Resources.source;
-        Img[1] = CircuitSimLib.Properties.Resources.source_on;
+        this.Img = new Image[2];
+        this.Img[0] = CircuitSimLib.Properties.Resources.source;
+        this.Img[1] = CircuitSimLib.Properties.Resources.source_on;
     }
 
     /// <summary>

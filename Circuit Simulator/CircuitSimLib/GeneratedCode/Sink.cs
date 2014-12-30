@@ -6,9 +6,27 @@ using System.Drawing;
 
 public class Sink : Element
 {
-	public virtual InputPoint input { get; set; }
-	public static Image[2] IMG { get; set; }
-	public virtual InputPoint InputPoint { get; set; }
+    /// <summary>
+    ///The input of the Sink
+    /// </summary>
+	public InputPoint Input { get; set; }
+
+    /// <summary>
+    ///The image of the Sink
+    /// </summary>
+	public Image[] Img { get; set; }
+
+    /// <summary>
+    ///Constructor
+    /// </summary>
+    public Sink()
+    {
+        this.Img = new Image[2];
+        this.Img[0] = CircuitSimLib.Properties.Resources.lamp;
+        this.Img[1] = CircuitSimLib.Properties.Resources.lamp_on;
+
+        this.Input = new InputPoint(this.X, this.Y, 25);
+    }
 
 }
 
