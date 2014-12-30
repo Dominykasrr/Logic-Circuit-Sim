@@ -13,7 +13,21 @@ public class OrGate : Gate
     /// <summary>
     /// The image of the OR gate
     /// </summary>
-	public static Image IMG { get; set; }
+	public Image Img { get; set; }
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public OrGate()
+    {
+        this.Input = new InputPoint[2];
+        this.Input[0] = new InputPoint(this.X, this.Y, 10);
+        this.Input[1] = new InputPoint(this.X, this.Y, 10);
+
+        this.Output = new OutputPoint(this.X, this.Y, 10);
+
+        this.Img = CircuitSimLib.Properties.Resources.or;
+    }
 
     /// <summary>
     /// Calculates the output for an OR gate

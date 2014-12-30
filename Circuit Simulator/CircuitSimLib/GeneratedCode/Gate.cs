@@ -20,20 +20,14 @@ public abstract class Gate : Element
     /// </summary>
     public Gate()
     {
-        this.Input = new InputPoint[2];
-        this.Input[0] = new InputPoint(this.X, this.Y, 10);
-        this.Input[1] = new InputPoint(this.X, this.Y, 10);
-        this.Output = new OutputPoint(this.X, this.Y, 10);
+
     }
 
     /// <summary>
     ///Calculates the output based on the inputs
     /// </summary>
     /// <returns>Returns a boolean</returns>
-	public bool CalculateOutput()
-	{
-		throw new System.NotImplementedException();
-	}
+    public bool CalculateOutput();
 
 }
 

@@ -11,7 +11,7 @@ using System.Text;
 
 public abstract class Element
 {
-	public virtual int elementID
+	public virtual int ElementID
 	{
 		get;
 		set;
