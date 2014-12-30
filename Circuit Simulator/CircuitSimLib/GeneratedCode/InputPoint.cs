@@ -11,18 +11,24 @@ public class InputPoint : ConnectionPoint
     /// <summary>
     /// The element this point is connected to
     /// </summary>
-	public virtual Element ConnectsTo
-	{
-		get;
-		set;
-	}
+    public Element ConnectsTo { get; set; }
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public InputPoint(int x, int y, int r)
+        : base(x, y, r)
+    {
+        this.ConnectsTo = null;
+    }
+
     /// <summary>
     /// Checks if this InputPoint is clicked
     /// </summary>
     /// <returns>Returns a boolean</returns>
-    public override bool AreYouClicked()
+    public override bool AreYouClicked(int x, int y)
     {
-        return base.AreYouClicked();
+        return base.AreYouClicked(x, y);
     }
 }
 

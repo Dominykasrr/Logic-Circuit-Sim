@@ -11,18 +11,24 @@ public class OutputPoint : ConnectionPoint
     /// <summary>
     /// A list of elements this OutputPoint is connected to
     /// </summary>
-	public virtual List<Element> ConnectsTo
-	{
-		get;
-		set;
-	}
+    public List<Element> ConnectsTo { get; set; }
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public OutputPoint(int x, int y, int r)
+        : base(x, y, r)
+    {
+        this.ConnectsTo = new List<Element>();
+    }
+
     /// <summary>
     /// Checks if this OutputPoint is clicked
     /// </summary>
     /// <returns>Returns a boolean</returns>
-    public override bool AreYouClicked()
+    public override bool AreYouClicked(int x, int y)
     {
-        return base.AreYouClicked();
+        return base.AreYouClicked(x, y);
     }
 }
 
