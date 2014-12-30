@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Circuit_Simulator
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         List<int> i = new List<int>();
         int e;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }

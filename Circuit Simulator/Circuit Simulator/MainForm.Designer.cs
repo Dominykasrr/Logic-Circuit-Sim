@@ -1,6 +1,6 @@
 ﻿namespace Circuit_Simulator
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.

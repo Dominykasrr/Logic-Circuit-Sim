@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +54,59 @@
     <Compile Include="GeneratedCode\Source.cs" />
     <Compile Include="GeneratedCode\StaticSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Circuit Simulator\Circuit Simulator.csproj">
+      <Project>{c256e47d-3e48-41eb-b802-b7e958f6f38e}</Project>
+      <Name>Circuit Simulator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\and.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\or.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inverter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\source.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\source_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lamp_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

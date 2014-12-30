@@ -6,11 +6,25 @@ using System.Drawing;
 
 public class DynamicSource : Source
 {
-	public virtual int frequency { get; set; }
+    /// <summary>
+    ///Frequency of the DynamicSource
+    /// </summary>
+	public int Frequency { get; set; }
 
-	public static Image IMG { get; set; }
+    /// <summary>
+    ///Image for the DynamicSource
+    /// </summary>
+	public Image Img { get; set; }
 
-	public virtual int value { get; set; }
+    /// <summary>
+    ///Constructor
+    /// </summary>
+    public DynamicSource()
+        : base()
+    {
+        this.Img = CircuitSimLib.Properties.Resources.clock;
+        this.Frequency = 0;
+    }
 
 }
 

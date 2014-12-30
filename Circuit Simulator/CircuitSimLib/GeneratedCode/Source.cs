@@ -3,12 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Source : Element
+public abstract class Source : Element
 {
-    //A boolean that states the current output of the source
-	public virtual bool state { get; set; }
-    
+    /// <summary>
+    ///A boolean that states the current output of the source
+    /// </summary>
+	public bool State { get; set; }
+
+    /// <summary>
     //An OutputPoint that specifies the output for the source
-	public virtual OutputPoint output { get; set; }
+    /// </summary>
+	public OutputPoint Output { get; set; }
+
+    /// <summary>
+    ///Constructor
+    /// </summary>
+    public Source()
+    {
+        this.State = false;
+        this.Output = null;
+    }
 }
 
