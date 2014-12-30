@@ -18,10 +18,7 @@ public abstract class Gate : Element
     /// <summary>
     ///Constructor
     /// </summary>
-    public Gate()
-    {
-
-    }
+    public Gate() : base(){}
 
     /// <summary>
     ///Calculates the output based on the inputs
