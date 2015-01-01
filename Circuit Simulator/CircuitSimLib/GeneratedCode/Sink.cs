@@ -23,6 +23,5 @@ public class Sink : Element
 
         this.Input = new InputPoint(this.X, this.Y, 25);
     }
-
 }
 

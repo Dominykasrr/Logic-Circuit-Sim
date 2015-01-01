@@ -48,6 +48,7 @@
             this.buttonAND.Size = new System.Drawing.Size(100, 50);
             this.buttonAND.TabIndex = 1;
             this.buttonAND.UseVisualStyleBackColor = true;
+            this.buttonAND.Click += new System.EventHandler(this.buttonAND_Click);
             // 
             // buttonOR
             // 
@@ -56,6 +57,7 @@
             this.buttonOR.Size = new System.Drawing.Size(100, 50);
             this.buttonOR.TabIndex = 2;
             this.buttonOR.UseVisualStyleBackColor = true;
+            this.buttonOR.Click += new System.EventHandler(this.buttonOR_Click);
             // 
             // MainForm
             // 

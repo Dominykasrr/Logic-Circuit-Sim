@@ -39,7 +39,7 @@ public abstract class Element
         ElementCount++;
     }
 
-    public void Draw()
+    public virtual void Draw()
     {
         throw new System.NotImplementedException();
     }

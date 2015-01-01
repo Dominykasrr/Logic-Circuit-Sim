@@ -24,5 +24,10 @@ public abstract class Source : Element
         this.State = false;
         this.Output = new OutputPoint(this.X, this.Y, 25);
     }
+
+    public override void Draw()
+    {
+        base.Draw();
+    } 
 }
 

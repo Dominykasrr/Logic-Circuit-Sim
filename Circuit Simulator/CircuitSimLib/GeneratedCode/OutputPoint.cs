@@ -11,7 +11,7 @@ public class OutputPoint : ConnectionPoint
     /// <summary>
     /// A list of elements this OutputPoint is connected to
     /// </summary>
-    public List<Element> ConnectsTo { get; set; }
+    public List<ConnectionPoint> ConnectsTo { get; set; }
 
     /// <summary>
     /// Constructor
@@ -19,7 +19,7 @@ public class OutputPoint : ConnectionPoint
     public OutputPoint(int x, int y, int r)
         : base(x, y, r)
     {
-        this.ConnectsTo = new List<Element>();
+        this.ConnectsTo = new List<ConnectionPoint>();
     }
 
     /// <summary>

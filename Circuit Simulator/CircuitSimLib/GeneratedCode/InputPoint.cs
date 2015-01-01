@@ -11,7 +11,7 @@ public class InputPoint : ConnectionPoint
     /// <summary>
     /// The element this point is connected to
     /// </summary>
-    public Element ConnectsTo { get; set; }
+    public ConnectionPoint ConnectsTo { get; set; }
 
     /// <summary>
     /// Constructor
@@ -48,7 +48,7 @@ public class InputPoint : ConnectionPoint
             return temp.State;
         }
 
-        throw new MissingFieldException();
+        throw new Exception();
     }
 
 

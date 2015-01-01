@@ -18,5 +18,15 @@ namespace Circuit_Simulator
             buttonAND.Image = CircuitSimLib.Properties.Resources.and;
             buttonOR.Image = CircuitSimLib.Properties.Resources.or;
         }
+
+        private void buttonAND_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Cross;
+        }
+
+        private void buttonOR_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Cross;
+        }
     }
 }

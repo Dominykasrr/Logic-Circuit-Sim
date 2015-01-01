@@ -21,12 +21,31 @@ public class Circuit
 
 	public void DrawAll() 
     {
-		throw new System.NotImplementedException();
-	}
+        for (int i = 0; i < this.Elements.Count; i++)
+        {
+            this.Elements[i].Draw();
+            this.Elements[i].DrawConnections();
+        }
+
+        for (int i = 0; i < this.Sinks.Count; i++)
+        {
+            this.Sinks[i].Draw();
+            this.Sinks[i].DrawConnections();
+        }
+    }
 
 	public void DrawSinksAndConnections()
 	{
-		throw new System.NotImplementedException();
+        for (int i = 0; i < this.Sinks.Count; i++)
+        {
+            this.Sinks[i].Draw();
+            this.Sinks[i].DrawConnections();
+        }
+
+        for (int i = 0; i < this.Elements.Count; i++)
+        {
+            this.Elements[i].DrawConnections();
+        }
 	}
 
 	public bool MoveElement(Element el, int X, int Y)
@@ -56,8 +75,25 @@ public class Circuit
 
 	public void MakeConnection(ConnectionPoint A, ConnectionPoint B)
 	{
-		throw new System.NotImplementedException();
-	}
+        if (A.GetType() == typeof(InputPoint) && base.GetType() == typeof(InputPoint)) throw new Exception();
+        else if (A.GetType() == typeof(OutputPoint) && base.GetType() == typeof(OutputPoint)) throw new Exception();
+        else if(A.GetType() == typeof(OutputPoint))
+        {
+            OutputPoint temp1 = (OutputPoint)A;
+            InputPoint temp2 = (InputPoint)B;
+
+            temp1.ConnectsTo.Add(B);
+            temp2.ConnectsTo = A;
+        }
+        else if (A.GetType() == typeof(InputPoint))
+        {
+            InputPoint temp1 = (InputPoint)A;
+            OutputPoint temp2 = (OutputPoint)B;
+
+            temp1.ConnectsTo = B;
+            temp2.ConnectsTo.Add(A);
+        }
+    }
 
 }
 
