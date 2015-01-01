@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 public class Form
 {
@@ -15,14 +18,42 @@ public class Form
         this.CurCircuit = new Circuit();
     }
 
-	public void Save() 
+	public void Save(String path) 
     {
-		throw new System.NotImplementedException();
+        FileStream fs = null;
+        BinaryFormatter bf = null;
+
+        try
+        {
+            fs = new FileStream(path, FileMode.Create, FileAccess.Write);
+            bf = new BinaryFormatter();
+            bf.Serialize(fs, CurCircuit);
+        }
+        catch (SerializationException) { }
+        catch (IOException) { }
+        finally
+        {
+            if (fs != null) fs.Close();
+        }
 	}
 
-	public void Load()
+	public void Load(String path)
 	{
-		throw new System.NotImplementedException();
+        FileStream fs = null;
+        BinaryFormatter bf = null;
+
+        try
+        {
+            fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+            bf = new BinaryFormatter();
+            CurCircuit = (Circuit)(bf.Deserialize(fs));
+        }
+        catch (SerializationException) { }
+        catch (IOException) { }
+        finally
+        {
+            if (fs != null) fs.Close();
+        }
 	}
 
 	public void New()
