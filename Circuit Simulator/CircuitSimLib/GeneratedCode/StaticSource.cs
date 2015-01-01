@@ -7,11 +7,6 @@ using System.Drawing;
 public class StaticSource : Source
 {
     /// <summary>
-    ///Image array for the two states of the StaticSource
-    /// </summary>
-	public Image[] Img { get; set; }
-
-    /// <summary>
     ///Constructor
     /// </summary>
     public StaticSource()

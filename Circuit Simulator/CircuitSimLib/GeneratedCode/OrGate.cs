@@ -21,7 +21,7 @@ public class OrGate : Gate
 
         this.Output = new OutputPoint(this.X, this.Y, 10);
 
-        this.Img = CircuitSimLib.Properties.Resources.or;
+        this.Img[0] = CircuitSimLib.Properties.Resources.or;
     }
 
     /// <summary>

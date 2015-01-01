@@ -21,7 +21,7 @@ public class AndGate : Gate
 
         this.Output = new OutputPoint(this.X, this.Y, 10);
 
-        this.Img = CircuitSimLib.Properties.Resources.and;
+        this.Img[0] = CircuitSimLib.Properties.Resources.and;
     }
 
     /// <summary>

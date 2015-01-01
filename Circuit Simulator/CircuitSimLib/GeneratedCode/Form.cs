@@ -27,7 +27,7 @@ public class Form
 
 	public void New()
 	{
-		throw new System.NotImplementedException();
+        this.CurCircuit = new Circuit();
 	}
 
 }

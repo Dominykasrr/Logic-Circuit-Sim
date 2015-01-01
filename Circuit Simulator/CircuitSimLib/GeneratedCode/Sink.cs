@@ -9,17 +9,13 @@ public class Sink : Element
     /// <summary>
     ///The input of the Sink
     /// </summary>
-	public InputPoint Input { get; set; }
-
-    /// <summary>
-    ///The image of the Sink
-    /// </summary>
-	public Image[] Img { get; set; }
+    public InputPoint Input { get; set; }
 
     /// <summary>
     ///Constructor
     /// </summary>
     public Sink()
+        : base()
     {
         this.Img = new Image[2];
         this.Img[0] = CircuitSimLib.Properties.Resources.lamp;

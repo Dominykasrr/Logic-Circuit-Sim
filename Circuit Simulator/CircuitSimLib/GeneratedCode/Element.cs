@@ -15,7 +15,7 @@ public abstract class Element
     /// <summary>
     /// The image of the Element
     /// </summary>
-    public Image Img { get; set; }
+    public Image[] Img { get; set; }
 
     /// <summary>
     /// X coordinate of an Element
@@ -55,10 +55,10 @@ public abstract class Element
     /// <returns>Returns a boolean</returns>
     public bool AreYouClicked(int x, int y)
     {
-        bool condition = (x <= (this.X + (this.Img.Width / 2)) && 
-                          x >= (this.X - (this.Img.Width / 2)) && 
-                          y <= (this.Y - (this.Img.Height / 2)) && 
-                          y >= (this.Y + (this.Img.Height / 2)));
+        bool condition = (x <= (this.X + (this.Img[0].Width / 2)) && 
+                          x >= (this.X - (this.Img[0].Width / 2)) && 
+                          y <= (this.Y - (this.Img[0].Height / 2)) && 
+                          y >= (this.Y + (this.Img[0].Height / 2)));
 
         if (condition) return true;
         else return false;
