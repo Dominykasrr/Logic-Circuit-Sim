@@ -34,7 +34,7 @@ public abstract class ConnectionPoint
     /// Checks if this ConnectionPoint was clicked
     /// </summary>
     /// <returns>Returns a boolean</returns>
-    public bool AreYouClicked(int x, int y)
+    public virtual bool AreYouClicked(int x, int y)
     {
         double d = Math.Sqrt(Math.Pow(x - this.X, 2) + Math.Pow(y - this.Y, 2));
 

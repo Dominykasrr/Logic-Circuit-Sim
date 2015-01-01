@@ -45,7 +45,7 @@
     <Compile Include="GeneratedCode\ConnectionPoint.cs" />
     <Compile Include="GeneratedCode\DynamicSource.cs" />
     <Compile Include="GeneratedCode\Element.cs" />
-    <Compile Include="GeneratedCode\Form.cs" />
+    <Compile Include="GeneratedCode\CircuitForm.cs" />
     <Compile Include="GeneratedCode\Gate.cs" />
     <Compile Include="GeneratedCode\InputPoint.cs" />
     <Compile Include="GeneratedCode\OrGate.cs" />
@@ -61,14 +61,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Circuit Simulator\Circuit Simulator.csproj">
-      <Project>{c256e47d-3e48-41eb-b802-b7e958f6f38e}</Project>
-      <Name>Circuit Simulator</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

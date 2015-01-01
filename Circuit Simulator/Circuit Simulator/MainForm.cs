@@ -12,32 +12,11 @@ namespace Circuit_Simulator
 {
     public partial class MainForm : Form
     {
-        List<int> i = new List<int>();
-        int e;
         public MainForm()
         {
             InitializeComponent();
+            buttonAND.Image = CircuitSimLib.Properties.Resources.and;
+            buttonOR.Image = CircuitSimLib.Properties.Resources.or;
         }
-
-            // I wanna find a point
-        void makeConnection()
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        
-        }
-        private void OnMouseClick(MouseEventArgs e) 
-        {
-             FindConnection(e.X, e.Y);
-            
-        }
-        private void FindConnection(int X,int Y)
-        {
-
-        }
-        
     }
 }

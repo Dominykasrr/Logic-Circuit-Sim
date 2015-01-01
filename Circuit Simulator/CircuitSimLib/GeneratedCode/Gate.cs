@@ -24,7 +24,7 @@ public abstract class Gate : Element
     ///Calculates the output based on the inputs
     /// </summary>
     /// <returns>Returns a boolean</returns>
-    public bool CalculateOutput();
+    public abstract bool CalculateOutput();
 
 }
 

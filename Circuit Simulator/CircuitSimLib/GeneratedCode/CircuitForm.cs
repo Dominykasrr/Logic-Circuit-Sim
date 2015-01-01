@@ -6,14 +6,14 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 
-public class Form
+public class CircuitForm
 {
 	public Circuit CurCircuit { get; set; }
 
     /// <summary>
     /// Constructor
     /// </summary>
-    public Form()
+    public CircuitForm()
     {
         this.CurCircuit = new Circuit();
     }

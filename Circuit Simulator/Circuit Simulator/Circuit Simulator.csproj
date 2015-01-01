@@ -114,6 +114,12 @@
   <ItemGroup>
     <None Include="Resources\T.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CircuitSimLib\CircuitSimLib.csproj">
+      <Project>{87d2f6ee-da59-45cb-89e1-ada9d6876f29}</Project>
+      <Name>CircuitSimLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

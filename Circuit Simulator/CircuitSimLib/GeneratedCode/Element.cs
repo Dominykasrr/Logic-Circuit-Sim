@@ -63,6 +63,5 @@ public abstract class Element
         if (condition) return true;
         else return false;
     }
-
 }
 
