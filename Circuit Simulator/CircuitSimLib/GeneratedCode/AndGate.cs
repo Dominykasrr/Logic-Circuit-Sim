@@ -10,11 +10,6 @@ using System.Drawing;
 /// </summary>
 public class AndGate : Gate
 {
-	/// <summary>
-	/// The image of the AND gate
-	/// </summary>
-    public Image Img { get; set; }
-
     /// <summary>
     /// Constructor
     /// </summary>

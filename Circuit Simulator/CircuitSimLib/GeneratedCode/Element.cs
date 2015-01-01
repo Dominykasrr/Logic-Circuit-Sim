@@ -2,16 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 public abstract class Element
 {
-	public int ElementID { get; set; }
+    /// <summary>
+    /// ID of an Element
+    /// </summary>
+    public int ElementID { get; set; }
     private static int ElementCount = 0;
 
-	public int X { get; set; }
+    /// <summary>
+    /// The image of the Element
+    /// </summary>
+    public Image Img { get; set; }
 
-	public int Y { get; set; }
+    /// <summary>
+    /// X coordinate of an Element
+    /// </summary>
+    public int X { get; set; }
 
+    /// <summary>
+    /// Y coordinate of an Element
+    /// </summary>
+    public int Y { get; set; }
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
     public Element()
     {
         this.X = 0;
@@ -21,20 +39,30 @@ public abstract class Element
         ElementCount++;
     }
 
-	public void Draw()
-	{
-		throw new System.NotImplementedException();
-	}
+    public void Draw()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public void DrawConnections()
-	{
-		throw new System.NotImplementedException();
-	}
+    public void DrawConnections()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public bool AreYouClicked()
-	{
-		throw new System.NotImplementedException();
-	}
+    /// <summary>
+    /// Checks if this Element was clicked
+    /// </summary>
+    /// <returns>Returns a boolean</returns>
+    public bool AreYouClicked(int x, int y)
+    {
+        bool condition = (x <= (this.X + (this.Img.Width / 2)) && 
+                          x >= (this.X - (this.Img.Width / 2)) && 
+                          y <= (this.Y - (this.Img.Height / 2)) && 
+                          y >= (this.Y + (this.Img.Height / 2)));
+
+        if (condition) return true;
+        else return false;
+    }
 
 }
 

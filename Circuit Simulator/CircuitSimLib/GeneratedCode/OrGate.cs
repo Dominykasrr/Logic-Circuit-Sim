@@ -11,11 +11,6 @@ using System.Drawing;
 public class OrGate : Gate
 {
     /// <summary>
-    /// The image of the OR gate
-    /// </summary>
-	public Image Img { get; set; }
-
-    /// <summary>
     /// Constructor
     /// </summary>
     public OrGate()
