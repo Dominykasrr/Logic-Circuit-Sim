@@ -30,7 +30,7 @@ public class OrGate : Gate
     /// <returns>Returns a calculated boolean</returns>
     public override bool CalculateOutput()
     {
-        return base.CalculateOutput();
+        return Input[0].ConnectedElementsOutput() || Input[1].ConnectedElementsOutput();
     }
 }
 

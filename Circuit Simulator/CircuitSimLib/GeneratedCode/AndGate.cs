@@ -30,7 +30,7 @@ public class AndGate : Gate
     /// <returns>Returns a calculated int</returns>
     public override bool CalculateOutput()
     {
-        return base.CalculateOutput();
+        return Input[0].ConnectedElementsOutput() && Input[1].ConnectedElementsOutput();
     }
 }
 
