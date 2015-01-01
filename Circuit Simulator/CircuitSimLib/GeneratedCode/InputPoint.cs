@@ -30,5 +30,27 @@ public class InputPoint : ConnectionPoint
     {
         return base.AreYouClicked(x, y);
     }
+
+    /// <summary>
+    /// Return the output of the connected element
+    /// </summary>
+    /// <returns>Returns a boolean</returns>
+    public bool ConnectedElementsOutput()
+    {
+        if (ConnectsTo.GetType() == typeof(Gate))
+        {
+            Gate temp = (Gate)ConnectsTo;
+            return temp.CalculateOutput();
+        }
+        else if (ConnectsTo.GetType() == typeof(Source))
+        {
+            Source temp = (Source)ConnectsTo;
+            return temp.State;
+        }
+
+        throw new MissingFieldException();
+    }
+
+
 }
 
