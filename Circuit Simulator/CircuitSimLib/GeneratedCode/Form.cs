@@ -5,9 +5,15 @@ using System.Text;
 
 public class Form
 {
-	public Circuit curCircuit { get; set; }
+	public Circuit CurCircuit { get; set; }
 
-	public Circuit Circuit { get; set; }
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public Form()
+    {
+        this.CurCircuit = new Circuit();
+    }
 
 	public void Save() 
     {

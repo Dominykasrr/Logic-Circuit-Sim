@@ -5,50 +5,55 @@ using System.Text;
 
 public class Circuit
 {
-	public static List<Element> elements { get; set; }
+	public List<Element> Elements { get; set; }
 
-	public virtual List<Sink> sinks { get; set; }
+	public List<Sink> Sinks { get; set; }
 
-	public virtual Element Element { get; set; }
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public Circuit()
+    {
+        this.Elements = new List<Element>();
+        this.Sinks = new List<Sink>();
+    }
 
-	public virtual Sink Sink { get; set; }
-
-	public virtual void DrawAll() 
+	public void DrawAll() 
     {
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void DrawSinksAndConnections()
+	public void DrawSinksAndConnections()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual bool MoveElement(Element el, int X, int Y)
+	public bool MoveElement(Element el, int X, int Y)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void RemoveElement(Element el)
+	public void RemoveElement(Element el)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddElement(Element type)
+	public void AddElement(Element type)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual Element FindElement(int X, int Y)
+	public Element FindElement(int X, int Y)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void FindConnectionPoint(int X, int Y)
+	public void FindConnectionPoint(int X, int Y)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void MakeConnection(ConnectionPoint A, ConnectionPoint B)
+	public void MakeConnection(ConnectionPoint A, ConnectionPoint B)
 	{
 		throw new System.NotImplementedException();
 	}
