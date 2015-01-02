@@ -21,6 +21,11 @@ public abstract class ConnectionPoint
     private int Radius { get; set; }
 
     /// <summary>
+    /// A pointer to the owner of the ConnectionPoint
+    /// </summary>
+    public Element Owner = null;
+
+    /// <summary>
     /// Constructor
     /// </summary>
     public ConnectionPoint(int x, int y, int r)

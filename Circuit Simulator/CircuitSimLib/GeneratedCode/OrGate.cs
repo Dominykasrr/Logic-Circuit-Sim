@@ -16,10 +16,10 @@ public class OrGate : Gate
     public OrGate()
     {
         this.Input = new InputPoint[2];
-        this.Input[0] = new InputPoint(this.X, this.Y, 10);
-        this.Input[1] = new InputPoint(this.X, this.Y, 10);
+        this.Input[0] = new InputPoint(this.X, this.Y, 10, this);
+        this.Input[1] = new InputPoint(this.X, this.Y, 10, this);
 
-        this.Output = new OutputPoint(this.X, this.Y, 10);
+        this.Output = new OutputPoint(this.X, this.Y, 10, this);
 
         this.Img[0] = CircuitSimLib.Properties.Resources.or;
     }

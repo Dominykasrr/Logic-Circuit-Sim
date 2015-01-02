@@ -16,10 +16,11 @@ public class InputPoint : ConnectionPoint
     /// <summary>
     /// Constructor
     /// </summary>
-    public InputPoint(int x, int y, int r)
+    public InputPoint(int x, int y, int r, Element owner)
         : base(x, y, r)
     {
         this.ConnectsTo = null;
+        this.Owner = owner;
     }
 
     /// <summary>

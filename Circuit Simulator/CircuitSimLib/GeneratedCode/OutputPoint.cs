@@ -16,10 +16,11 @@ public class OutputPoint : ConnectionPoint
     /// <summary>
     /// Constructor
     /// </summary>
-    public OutputPoint(int x, int y, int r)
+    public OutputPoint(int x, int y, int r, Element owner)
         : base(x, y, r)
     {
         this.ConnectsTo = new List<ConnectionPoint>();
+        this.Owner = owner;
     }
 
     /// <summary>
