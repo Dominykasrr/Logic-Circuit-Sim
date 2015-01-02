@@ -22,7 +22,7 @@ public abstract class Source : Element
         : base()
     {
         this.State = false;
-        this.Output = new OutputPoint(this.X, this.Y, 25);
+        this.Output = new OutputPoint(this.X, this.Y, 25, this);
     }
 
     public override void Draw()

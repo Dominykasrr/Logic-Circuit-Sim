@@ -21,7 +21,7 @@ public class Sink : Element
         this.Img[0] = CircuitSimLib.Properties.Resources.lamp;
         this.Img[1] = CircuitSimLib.Properties.Resources.lamp_on;
 
-        this.Input = new InputPoint(this.X, this.Y, 25);
+        this.Input = new InputPoint(this.X, this.Y, 25, this);
     }
 }
 
