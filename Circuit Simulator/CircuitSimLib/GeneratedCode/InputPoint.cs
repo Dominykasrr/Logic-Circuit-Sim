@@ -40,12 +40,12 @@ public class InputPoint : ConnectionPoint
     {
         if (ConnectsTo.GetType() == typeof(Gate))
         {
-            Gate temp = (Gate)ConnectsTo;
+            Gate temp = (Gate)ConnectsTo.Owner;
             return temp.CalculateOutput();
         }
         else if (ConnectsTo.GetType() == typeof(Source))
         {
-            Source temp = (Source)ConnectsTo;
+            Source temp = (Source)ConnectsTo.Owner;
             return temp.State;
         }
 
