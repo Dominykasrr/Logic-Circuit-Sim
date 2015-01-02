@@ -48,42 +48,109 @@ public class Circuit
         }
 	}
 
-	public bool MoveElement(Element el, int X, int Y)
+	public bool MoveElement(Element el, int x, int y)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public void RemoveElement(Element el)
+	public bool RemoveElement(int x, int y)
 	{
-		throw new System.NotImplementedException();
+        Element temp = FindElement(x, y);
+        if (temp != null)
+        {
+            for (int i = 0; i < this.Elements.Count; i++)
+            {
+                if (temp == this.Elements[i])
+                {
+                    this.Elements.RemoveAt(i);
+                    return true;
+                }
+            }
+            return false;
+        }
+        else return false;
+
 	}
 
-	public void AddElement(Element type)
+	public bool AddElement(String type, int x, int y)
 	{
-		throw new System.NotImplementedException();
+        if(type == "AND")
+        {
+            AndGate temp = new AndGate();
+            MoveElement(temp, x, y);
+            this.Elements.Add(temp);
+            return true;
+        }
+        else if (type == "OR")
+        {
+            OrGate temp = new OrGate();
+            MoveElement(temp, x, y);
+            this.Elements.Add(temp);
+            return true;
+        }
+        else return false;
 	}
 
-	public Element FindElement(int X, int Y)
+	public Element FindElement(int x, int y)
 	{
-		throw new System.NotImplementedException();
+        for (int i = 0; i < this.Elements.Count; i++)
+        {
+            if (this.Elements[i].AreYouClicked(x, y)) return this.Elements[i];
+        }
+        return null;
 	}
 
-	public void FindConnectionPoint(int X, int Y)
+	public ConnectionPoint FindConnectionPoint(int x, int y)
 	{
-		throw new System.NotImplementedException();
+        for (int i = 0; i < this.Elements.Count; i++)
+        {
+            if (this.Elements[i].AreYouClicked(x, y))
+            {
+                if (this.Elements[i].GetType() == typeof(Gate))
+                {
+                    Gate g = (Gate)this.Elements[i];
+                    if (g.Output.AreYouClicked(x, y)) return g.Output;
+                    for (int j = 0; j < g.Input.Length; j++)
+                    {
+                        if (g.Input[j].AreYouClicked(x, y)) return g.Input[j];
+                    }
+                }
+                else if (this.Elements[i].GetType() == typeof(Source))
+                {
+                    Source s = (Source)this.Elements[i];
+                    if (s.Output.AreYouClicked(x, y)) return s.Output;
+                }
+                else if (this.Elements[i].GetType() == typeof(Sink))
+                {
+                    Sink s = (Sink)this.Elements[i];
+                    if (s.Input.AreYouClicked(x, y)) return s.Input;
+                }
+                else return null;
+            }
+        }
+        return null;
 	}
 
-	public void MakeConnection(ConnectionPoint A, ConnectionPoint B)
+    public bool MakeConnection(int aX, int aY, int bX, int bY)
+    {
+        ConnectionPoint A = FindConnectionPoint(aX, aY);
+        ConnectionPoint B = FindConnectionPoint(bX, bY);
+        if (MakeConnection(A, B)) return true;
+        else return false;
+    }
+
+	public bool MakeConnection(ConnectionPoint A, ConnectionPoint B)
 	{
         if (A.GetType() == typeof(InputPoint) && base.GetType() == typeof(InputPoint)) throw new Exception();
         else if (A.GetType() == typeof(OutputPoint) && base.GetType() == typeof(OutputPoint)) throw new Exception();
-        else if(A.GetType() == typeof(OutputPoint))
+        else if (A.GetType() == typeof(OutputPoint))
         {
             OutputPoint temp1 = (OutputPoint)A;
             InputPoint temp2 = (InputPoint)B;
 
             temp1.ConnectsTo.Add(B);
             temp2.ConnectsTo = A;
+            return true;
         }
         else if (A.GetType() == typeof(InputPoint))
         {
@@ -92,7 +159,9 @@ public class Circuit
 
             temp1.ConnectsTo = B;
             temp2.ConnectsTo.Add(A);
+            return true;
         }
+        else throw new Exception();
     }
 
 }
