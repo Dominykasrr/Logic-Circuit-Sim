@@ -50,8 +50,32 @@ public class Circuit
 
 	public bool MoveElement(Element el, int x, int y)
 	{
-		throw new System.NotImplementedException();
+        for (int i = 0; i < this.Elements.Count; i++)
+        {
+            if (el == this.Elements[i])
+            {
+                this.Elements[i].X = x;
+                this.Elements[i].Y = y;
+                return true;
+            }
+        }
+        return false;
 	}
+
+    public bool MoveElement(int iX, int iY, int nX, int nY)
+    {
+        Element temp = FindElement(iX, iY);
+        if (temp != null)
+        {
+            if (FindElement(nX, nY) == null)
+            {
+                MoveElement(temp, nX, nY);
+                return true;
+            }
+            else return false;
+        }
+        else return false;
+    }
 
 	public bool RemoveElement(int x, int y)
 	{
@@ -69,7 +93,6 @@ public class Circuit
             return false;
         }
         else return false;
-
 	}
 
 	public bool AddElement(String type, int x, int y)
