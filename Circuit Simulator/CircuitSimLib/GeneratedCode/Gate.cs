@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 public abstract class Gate : Element
 {
@@ -18,7 +19,10 @@ public abstract class Gate : Element
     /// <summary>
     ///Constructor
     /// </summary>
-    public Gate() : base(){}
+    public Gate() : base()
+    {
+        Img = new Image[1];
+    }
 
     /// <summary>
     ///Calculates the output based on the inputs

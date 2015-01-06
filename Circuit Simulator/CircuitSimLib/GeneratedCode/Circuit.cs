@@ -2,34 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 [Serializable]
 public class Circuit
 {
 	public List<Element> Elements { get; set; }
-
 	public List<Sink> Sinks { get; set; }
+    private Graphics gr;
 
     /// <summary>
     /// Constructor
     /// </summary>
-    public Circuit()
+    public Circuit(Graphics gr)
     {
         this.Elements = new List<Element>();
         this.Sinks = new List<Sink>();
+        this.gr = gr;
     }
 
 	public void DrawAll() 
     {
         for (int i = 0; i < this.Elements.Count; i++)
         {
-            this.Elements[i].Draw();
+            this.Elements[i].Draw(gr);
             this.Elements[i].DrawConnections();
         }
 
         for (int i = 0; i < this.Sinks.Count; i++)
         {
-            this.Sinks[i].Draw();
+            this.Sinks[i].Draw(gr);
             this.Sinks[i].DrawConnections();
         }
     }
@@ -38,7 +40,7 @@ public class Circuit
 	{
         for (int i = 0; i < this.Sinks.Count; i++)
         {
-            this.Sinks[i].Draw();
+            this.Sinks[i].Draw(gr);
             this.Sinks[i].DrawConnections();
         }
 
@@ -100,8 +102,8 @@ public class Circuit
         if(type == "AND")
         {
             AndGate temp = new AndGate();
-            MoveElement(temp, x, y);
             this.Elements.Add(temp);
+            MoveElement(temp, x, y);
             return true;
         }
         else if (type == "OR")

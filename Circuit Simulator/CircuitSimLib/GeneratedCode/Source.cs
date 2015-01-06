@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 public abstract class Source : Element
 {
@@ -25,9 +26,9 @@ public abstract class Source : Element
         this.Output = new OutputPoint(this.X, this.Y, 25, this);
     }
 
-    public override void Draw()
+    public override void Draw(Graphics gr)
     {
-        base.Draw();
+        base.Draw(gr);
     } 
 }
 

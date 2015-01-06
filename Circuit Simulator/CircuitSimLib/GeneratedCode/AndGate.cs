@@ -32,5 +32,9 @@ public class AndGate : Gate
     {
         return Input[0].ConnectedElementsOutput() && Input[1].ConnectedElementsOutput();
     }
+    public override void Draw(Graphics gr)
+    {
+        gr.DrawImage(Img[0], new Rectangle(this.X - Img[0].Width / 2, this.Y - Img[0].Height/2-19, Img[0].Width, Img[0].Height));
+    }
 }
 

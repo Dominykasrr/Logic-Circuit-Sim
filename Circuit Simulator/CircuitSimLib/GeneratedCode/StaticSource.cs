@@ -25,9 +25,9 @@ public class StaticSource : Source
         this.State = !this.State;
     }
 
-    public override void Draw()
+    public override void Draw(Graphics gr)
     {
-        base.Draw();
+        base.Draw(gr);
     }
 
 }
