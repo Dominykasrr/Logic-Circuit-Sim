@@ -45,7 +45,6 @@
     <Compile Include="GeneratedCode\ConnectionPoint.cs" />
     <Compile Include="GeneratedCode\DynamicSource.cs" />
     <Compile Include="GeneratedCode\Element.cs" />
-    <Compile Include="GeneratedCode\CircuitForm.cs" />
     <Compile Include="GeneratedCode\Gate.cs" />
     <Compile Include="GeneratedCode\InputPoint.cs" />
     <Compile Include="GeneratedCode\OrGate.cs" />
