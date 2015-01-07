@@ -38,7 +38,6 @@
             this.pbDynamicSource = new System.Windows.Forms.PictureBox();
             this.pbSink = new System.Windows.Forms.PictureBox();
             this.timerDrawLineToCur = new System.Windows.Forms.Timer(this.components);
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbStaticSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOr)).BeginInit();
@@ -59,6 +58,7 @@
             this.panel.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel_DragEnter);
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             this.panel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_MouseClick);
+            this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // buttonAND
             // 
@@ -127,12 +127,6 @@
             // 
             this.timerDrawLineToCur.Tick += new System.EventHandler(this.timerDrawLineToCur_Tick);
             // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(153, 26);
-            this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,7 +169,6 @@
         private System.Windows.Forms.PictureBox pbDynamicSource;
         private System.Windows.Forms.PictureBox pbSink;
         private System.Windows.Forms.Timer timerDrawLineToCur;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 
     }
 }

@@ -18,10 +18,19 @@ namespace Circuit_Simulator
         Circuit currCircuit;
         Graphics gr;
         Point pointToDrawLineFrom = new Point(0,0);
+        Point pointToRemoveFrom = new Point(0, 0);
+        ContextMenuStrip mnu = new ContextMenuStrip();
+        ToolStripMenuItem mnuRemove = new ToolStripMenuItem("Remove");
+        
+        
+       
+
         public MainForm()
         {
             InitializeComponent();
-
+            mnuRemove.Click += new EventHandler(mnuRemove_Click);
+            mnu.Items.AddRange(new ToolStripItem[] { mnuRemove });
+            panel.ContextMenuStrip = mnu;
             gr = panel.CreateGraphics();
             currCircuit = new Circuit(gr);
             // Set images to left menu pictureboxes
@@ -141,9 +150,11 @@ namespace Circuit_Simulator
             currCircuit.DrawAll();
             Invalidate();
         }
-
-        private void panel_MouseClick(object sender, MouseEventArgs e)
+        private void panel_MouseClick(object sender, MouseEventArgs e) { }
+        private void panel_MouseDown(object sender, MouseEventArgs e)
         {
+            pointToRemoveFrom.X = e.X;
+            pointToRemoveFrom.Y = e.Y;
             if(e.Button==MouseButtons.Left)
             {
                 if (pointToDrawLineFrom == new Point(0,0))
@@ -165,25 +176,26 @@ namespace Circuit_Simulator
                     panel.Refresh();
                 }
             }
-            else if (e.Button==MouseButtons.Right)
+            else 
+            
             {
-                ContextMenuStrip mnu = new ContextMenuStrip();
-                ToolStripMenuItem mnuCopy = new ToolStripMenuItem("Copy");
-                ToolStripMenuItem mnuCut = new ToolStripMenuItem("Cut");
-                ToolStripMenuItem mnuPaste = new ToolStripMenuItem("Paste");
-                //Assign event handlers
-                mnuCopy.Click += new EventHandler(mnuCopy_Click);
-                mnuCut.Click += new EventHandler(mnuCut_Click);
-                mnuPaste.Click += new EventHandler(mnuPaste_Click);
-                //Add to main context menu
-                mnu.Items.AddRange(new ToolStripItem[] { mnuCopy, mnuCut, mnuPaste });
-                //Assign to datagridview
-                panel.ContextMenuStrip = mnu;
+                if (currCircuit.FindElement(e.X, e.Y) !=null)
+                {
+                    
+                    
+                  
+                   
+                    
+                }
             }
         }
-        private void mnuCopy_Click(object sender, EventArgs e)
+    
+        private void mnuRemove_Click(object sender, EventArgs e)
         {
-
+            
+            currCircuit.RemoveElement(pointToRemoveFrom.X, pointToRemoveFrom.Y);
+            
+            panel.Refresh();
         }
         private void mnuCut_Click(object sender, EventArgs e)
         {
