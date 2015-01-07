@@ -23,6 +23,10 @@ public abstract class Gate : Element
     {
         Img = new Image[1];
     }
+    public override void Draw(Graphics gr)
+    {
+        gr.DrawImage(Img[0], new Rectangle(this.X - Img[0].Width / 2, this.Y - Img[0].Height / 2, Img[0].Width, Img[0].Height));
+    }
 
     /// <summary>
     ///Calculates the output based on the inputs

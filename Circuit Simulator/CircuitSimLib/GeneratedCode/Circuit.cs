@@ -99,21 +99,38 @@ public class Circuit
 
 	public bool AddElement(String type, int x, int y)
 	{
-        if(type == "AND")
+        Element temp=null;
+        switch(type)
         {
-            AndGate temp = new AndGate();
+            case "AND":
+                temp = new AndGate();
+                break;
+            case "OR":
+                temp = new OrGate();
+                break;
+            case "NOT":
+                temp = new NotGate();
+                break;
+            case "STSOURCE":
+                temp = new StaticSource();
+                break;
+            case "XOR":
+                temp = new AndGate();
+                break;
+            case "NAND":
+                temp = new AndGate();
+                break;
+            case "SINK":
+                temp = new Sink();
+                break;
+        }
+        if (temp != null)
+        {
             this.Elements.Add(temp);
             MoveElement(temp, x, y);
             return true;
         }
-        else if (type == "OR")
-        {
-            OrGate temp = new OrGate();
-            MoveElement(temp, x, y);
-            this.Elements.Add(temp);
-            return true;
-        }
-        else return false;
+        return false;
 	}
 
 	public Element FindElement(int x, int y)

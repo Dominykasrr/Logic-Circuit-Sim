@@ -20,19 +20,23 @@ namespace Circuit_Simulator
         public MainForm()
         {
             InitializeComponent();
+
             gr = panel.CreateGraphics();
+            currCircuit = new Circuit(gr);
+            // Set images to left menu pictureboxes
             pbSource.Image = CircuitSimLib.Properties.Resources.source;
             pbOr.Image = CircuitSimLib.Properties.Resources.or;
             pbAnd.Image = CircuitSimLib.Properties.Resources.and;
-            ((Control)panel).AllowDrop = true;
-            currCircuit = new Circuit(gr);
+            pbNot.Image = CircuitSimLib.Properties.Resources.nand; // Gotta add "not" image to resources
+
+            ((Control)panel).AllowDrop = true; //
             
         }
 
         private void panel_DragDrop(object sender, DragEventArgs e)
         {
-          //  if (!currCircuit.AddElement("AND", e.X - panel.Location.X, e.Y - panel.Location.Y))
-            if (!currCircuit.AddElement("AND", e.X - panel.Location.X, e.Y - panel.Location.Y))
+            Point pointOnForm = panel.PointToClient(new Point(e.X, e.Y));
+            if (!currCircuit.AddElement(e.Data.GetData(DataFormats.Text).ToString(), pointOnForm.X, pointOnForm.Y))
             {
                 MessageBox.Show("fix ur autism");
             }
@@ -41,7 +45,7 @@ namespace Circuit_Simulator
 
         private void panel_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Bitmap))
+            if (e.Data.GetDataPresent(DataFormats.Text))
             {
                 e.Effect = DragDropEffects.Copy;
             }
@@ -58,6 +62,7 @@ namespace Circuit_Simulator
                 ele.Draw(gr);
             }
         }
+
         public void Save(String path)
         {
             FileStream fs = null;
@@ -96,14 +101,24 @@ namespace Circuit_Simulator
             }
         }
 
-        public void New()
-        {
-            this.currCircuit = new Circuit(gr);
-        }
-
         private void pbAnd_MouseDown(object sender, MouseEventArgs e)
         {
-            pbAnd.DoDragDrop(pbAnd.Image, DragDropEffects.Copy);
+            pbAnd.DoDragDrop("AND", DragDropEffects.Copy);
+        }
+
+        private void pbSource_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbSource.DoDragDrop("STSOURCE", DragDropEffects.Copy);
+        }
+
+        private void pbOr_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbOr.DoDragDrop("OR", DragDropEffects.Copy);
+        }
+
+        private void pbNot_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbNot.DoDragDrop("NOT", DragDropEffects.Copy);
         }
 
 

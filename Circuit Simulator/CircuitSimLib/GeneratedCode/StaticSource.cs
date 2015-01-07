@@ -27,7 +27,8 @@ public class StaticSource : Source
 
     public override void Draw(Graphics gr)
     {
-        base.Draw(gr);
+        int intState = Convert.ToInt16(State);
+        gr.DrawImage(Img[intState], new Rectangle(this.X - Img[intState].Width / 2, this.Y - Img[intState].Height / 2, Img[intState].Width, Img[intState].Height));
     }
 
 }

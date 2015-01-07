@@ -30,7 +30,6 @@
         {
             this.panel = new System.Windows.Forms.Panel();
             this.buttonAND = new System.Windows.Forms.Button();
-            this.buttonOR = new System.Windows.Forms.Button();
             this.pbSource = new System.Windows.Forms.PictureBox();
             this.pbAnd = new System.Windows.Forms.PictureBox();
             this.pbOr = new System.Windows.Forms.PictureBox();
@@ -61,46 +60,41 @@
             this.buttonAND.UseVisualStyleBackColor = true;
             this.buttonAND.Click += new System.EventHandler(this.buttonAND_Click);
             // 
-            // buttonOR
-            // 
-            this.buttonOR.Location = new System.Drawing.Point(12, 68);
-            this.buttonOR.Name = "buttonOR";
-            this.buttonOR.Size = new System.Drawing.Size(100, 50);
-            this.buttonOR.TabIndex = 2;
-            this.buttonOR.UseVisualStyleBackColor = true;
-            // 
             // pbSource
             // 
-            this.pbSource.Location = new System.Drawing.Point(13, 125);
+            this.pbSource.Location = new System.Drawing.Point(13, 68);
             this.pbSource.Name = "pbSource";
-            this.pbSource.Size = new System.Drawing.Size(100, 100);
+            this.pbSource.Size = new System.Drawing.Size(100, 50);
             this.pbSource.TabIndex = 3;
             this.pbSource.TabStop = false;
+            this.pbSource.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbSource_MouseDown);
             // 
             // pbAnd
             // 
-            this.pbAnd.Location = new System.Drawing.Point(12, 231);
+            this.pbAnd.Location = new System.Drawing.Point(13, 124);
             this.pbAnd.Name = "pbAnd";
-            this.pbAnd.Size = new System.Drawing.Size(100, 100);
+            this.pbAnd.Size = new System.Drawing.Size(100, 50);
             this.pbAnd.TabIndex = 3;
             this.pbAnd.TabStop = false;
             this.pbAnd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbAnd_MouseDown);
             // 
             // pbOr
             // 
-            this.pbOr.Location = new System.Drawing.Point(13, 337);
+            this.pbOr.Location = new System.Drawing.Point(12, 180);
             this.pbOr.Name = "pbOr";
-            this.pbOr.Size = new System.Drawing.Size(100, 100);
+            this.pbOr.Size = new System.Drawing.Size(100, 50);
             this.pbOr.TabIndex = 3;
             this.pbOr.TabStop = false;
+            this.pbOr.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbOr_MouseDown);
             // 
             // pbNot
             // 
-            this.pbNot.Location = new System.Drawing.Point(13, 443);
+            this.pbNot.Location = new System.Drawing.Point(12, 236);
             this.pbNot.Name = "pbNot";
-            this.pbNot.Size = new System.Drawing.Size(100, 100);
+            this.pbNot.Size = new System.Drawing.Size(100, 50);
             this.pbNot.TabIndex = 3;
             this.pbNot.TabStop = false;
+            this.pbNot.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbNot_MouseDown);
             // 
             // MainForm
             // 
@@ -112,7 +106,6 @@
             this.Controls.Add(this.pbOr);
             this.Controls.Add(this.pbAnd);
             this.Controls.Add(this.pbSource);
-            this.Controls.Add(this.buttonOR);
             this.Controls.Add(this.buttonAND);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -134,7 +127,6 @@
 
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Button buttonAND;
-        private System.Windows.Forms.Button buttonOR;
         private System.Windows.Forms.PictureBox pbSource;
         private System.Windows.Forms.PictureBox pbAnd;
         private System.Windows.Forms.PictureBox pbOr;
