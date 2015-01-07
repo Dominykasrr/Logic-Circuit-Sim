@@ -8,12 +8,12 @@ public abstract class ConnectionPoint
     /// <summary>
     /// X coordinate of the ConnectionPoint
     /// </summary>
-    private int X { get; set; }
+    public int X { get; set; }
 
     /// <summary>
     /// X coordinate of the ConnectionPoint
     /// </summary>
-    private int Y { get; set; }
+    public int Y { get; set; }
 
     /// <summary>
     /// Radius of the ConnectionPoint

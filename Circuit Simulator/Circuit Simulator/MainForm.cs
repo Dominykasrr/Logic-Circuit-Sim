@@ -17,6 +17,7 @@ namespace Circuit_Simulator
     {
         Circuit currCircuit;
         Graphics gr;
+        Point pointToDrawLineFrom = new Point(0,0);
         public MainForm()
         {
             InitializeComponent();
@@ -24,10 +25,12 @@ namespace Circuit_Simulator
             gr = panel.CreateGraphics();
             currCircuit = new Circuit(gr);
             // Set images to left menu pictureboxes
-            pbSource.Image = CircuitSimLib.Properties.Resources.source;
+            pbStaticSource.Image = CircuitSimLib.Properties.Resources.source;
+            pbDynamicSource.Image = CircuitSimLib.Properties.Resources.clock;
             pbOr.Image = CircuitSimLib.Properties.Resources.or;
             pbAnd.Image = CircuitSimLib.Properties.Resources.and;
-            pbNot.Image = CircuitSimLib.Properties.Resources.nand; // Gotta add "not" image to resources
+            pbNot.Image = CircuitSimLib.Properties.Resources.inverter;
+            pbSink.Image = CircuitSimLib.Properties.Resources.lamp_on;
 
             ((Control)panel).AllowDrop = true; //
             
@@ -39,6 +42,10 @@ namespace Circuit_Simulator
             if (!currCircuit.AddElement(e.Data.GetData(DataFormats.Text).ToString(), pointOnForm.X, pointOnForm.Y))
             {
                 MessageBox.Show("fix ur autism");
+            }
+            else
+            {
+                currCircuit.DrawAll();
             }
             
         }
@@ -57,10 +64,7 @@ namespace Circuit_Simulator
 
         private void buttonAND_Click(object sender, EventArgs e)
         {
-            foreach (Element ele in currCircuit.Elements)
-            {
-                ele.Draw(gr);
-            }
+
         }
 
         public void Save(String path)
@@ -106,11 +110,6 @@ namespace Circuit_Simulator
             pbAnd.DoDragDrop("AND", DragDropEffects.Copy);
         }
 
-        private void pbSource_MouseDown(object sender, MouseEventArgs e)
-        {
-            pbSource.DoDragDrop("STSOURCE", DragDropEffects.Copy);
-        }
-
         private void pbOr_MouseDown(object sender, MouseEventArgs e)
         {
             pbOr.DoDragDrop("OR", DragDropEffects.Copy);
@@ -120,6 +119,94 @@ namespace Circuit_Simulator
         {
             pbNot.DoDragDrop("NOT", DragDropEffects.Copy);
         }
+
+        private void pbStaticSource_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbStaticSource.DoDragDrop("STSOURCE", DragDropEffects.Copy);
+        }
+
+        private void pbDynamicSource_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbDynamicSource.DoDragDrop("DYSOURCE", DragDropEffects.Copy);
+
+        }
+        private void pbSink_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbSink.DoDragDrop("SINK", DragDropEffects.Copy);
+        }
+
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+            currCircuit.DrawSinksAndConnections();
+            currCircuit.DrawAll();
+            Invalidate();
+        }
+
+        private void panel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button==MouseButtons.Left)
+            {
+                if (pointToDrawLineFrom == new Point(0,0))
+                {
+                    gr.DrawRectangle(new Pen(Color.Black), new Rectangle(e.X, e.Y, 10, 10));
+                    ConnectionPoint temp = currCircuit.FindConnectionPoint(e.X, e.Y);
+                    pointToDrawLineFrom = new Point(temp.X, temp.Y);
+                    if (temp != null)
+                    {
+                        timerDrawLineToCur.Interval = 100;
+                        timerDrawLineToCur.Start();
+                    }
+                }
+                else
+                {
+                    timerDrawLineToCur.Stop();
+                    currCircuit.MakeConnection(pointToDrawLineFrom.X, pointToDrawLineFrom.Y, e.X, e.Y);
+                    pointToDrawLineFrom = new Point(0,0);
+                    panel.Refresh();
+                }
+            }
+            else if (e.Button==MouseButtons.Right)
+            {
+                ContextMenuStrip mnu = new ContextMenuStrip();
+                ToolStripMenuItem mnuCopy = new ToolStripMenuItem("Copy");
+                ToolStripMenuItem mnuCut = new ToolStripMenuItem("Cut");
+                ToolStripMenuItem mnuPaste = new ToolStripMenuItem("Paste");
+                //Assign event handlers
+                mnuCopy.Click += new EventHandler(mnuCopy_Click);
+                mnuCut.Click += new EventHandler(mnuCut_Click);
+                mnuPaste.Click += new EventHandler(mnuPaste_Click);
+                //Add to main context menu
+                mnu.Items.AddRange(new ToolStripItem[] { mnuCopy, mnuCut, mnuPaste });
+                //Assign to datagridview
+                panel.ContextMenuStrip = mnu;
+            }
+        }
+        private void mnuCopy_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void mnuCut_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void mnuPaste_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void timerDrawLineToCur_Tick(object sender, EventArgs e)
+        {
+            panel.Refresh();
+            Point pointOnForm = panel.PointToClient(new Point(Cursor.Position.X, Cursor.Position.Y));
+            gr.DrawLine(new Pen(Color.Black), pointToDrawLineFrom, pointOnForm);
+            
+        }
+
+        private void contextMenuStrip_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+
 
 
 

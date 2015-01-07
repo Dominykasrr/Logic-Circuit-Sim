@@ -12,7 +12,6 @@ public class StaticSource : Source
     public StaticSource()
         : base()
     {
-        this.Img = new Image[2];
         this.Img[0] = CircuitSimLib.Properties.Resources.source;
         this.Img[1] = CircuitSimLib.Properties.Resources.source_on;
     }
@@ -23,12 +22,6 @@ public class StaticSource : Source
     public void Toggle()
     {
         this.State = !this.State;
-    }
-
-    public override void Draw(Graphics gr)
-    {
-        int intState = Convert.ToInt16(State);
-        gr.DrawImage(Img[intState], new Rectangle(this.X - Img[intState].Width / 2, this.Y - Img[intState].Height / 2, Img[intState].Width, Img[intState].Height));
     }
 
 }

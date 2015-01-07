@@ -23,16 +23,9 @@ public class Circuit
 
 	public void DrawAll() 
     {
-        for (int i = 0; i < this.Elements.Count; i++)
+        foreach (Element ele in this.Elements)
         {
-            this.Elements[i].Draw(gr);
-            this.Elements[i].DrawConnections();
-        }
-
-        for (int i = 0; i < this.Sinks.Count; i++)
-        {
-            this.Sinks[i].Draw(gr);
-            this.Sinks[i].DrawConnections();
+            ele.Draw(gr);
         }
     }
 
@@ -41,27 +34,25 @@ public class Circuit
         for (int i = 0; i < this.Sinks.Count; i++)
         {
             this.Sinks[i].Draw(gr);
-            this.Sinks[i].DrawConnections();
+            this.Sinks[i].DrawConnections(gr);
         }
 
         for (int i = 0; i < this.Elements.Count; i++)
         {
-            this.Elements[i].DrawConnections();
+            this.Elements[i].DrawConnections(gr);
         }
 	}
 
 	public bool MoveElement(Element el, int x, int y)
 	{
-        for (int i = 0; i < this.Elements.Count; i++)
+        if(FindElement(x,y)==null)
         {
-            if (el == this.Elements[i])
-            {
-                this.Elements[i].X = x;
-                this.Elements[i].Y = y;
-                return true;
-            }
+            el.X = x;
+            el.Y = y;
+            return true;
         }
         return false;
+
 	}
 
     public bool MoveElement(int iX, int iY, int nX, int nY)
@@ -114,6 +105,9 @@ public class Circuit
             case "STSOURCE":
                 temp = new StaticSource();
                 break;
+            case "DYSOURCE":
+                temp = new DynamicSource();
+                break;
             case "XOR":
                 temp = new AndGate();
                 break;
@@ -123,11 +117,13 @@ public class Circuit
             case "SINK":
                 temp = new Sink();
                 break;
+            default:
+                return false;
         }
-        if (temp != null)
+        if (MoveElement(temp, x, y))
         {
+            if (temp.GetType() == typeof(Sink)) this.Sinks.Add((Sink)temp);
             this.Elements.Add(temp);
-            MoveElement(temp, x, y);
             return true;
         }
         return false;
@@ -157,7 +153,7 @@ public class Circuit
                         if (g.Input[j].AreYouClicked(x, y)) return g.Input[j];
                     }
                 }
-                else if (this.Elements[i].GetType() == typeof(Source))
+                else if (this.Elements[i].GetType().BaseType == typeof(Source))
                 {
                     Source s = (Source)this.Elements[i];
                     if (s.Output.AreYouClicked(x, y)) return s.Output;
@@ -183,8 +179,7 @@ public class Circuit
 
 	public bool MakeConnection(ConnectionPoint A, ConnectionPoint B)
 	{
-        if (A.GetType() == typeof(InputPoint) && base.GetType() == typeof(InputPoint)) throw new Exception();
-        else if (A.GetType() == typeof(OutputPoint) && base.GetType() == typeof(OutputPoint)) throw new Exception();
+        if (A.GetType() == B.GetType()) return false;
         else if (A.GetType() == typeof(OutputPoint))
         {
             OutputPoint temp1 = (OutputPoint)A;

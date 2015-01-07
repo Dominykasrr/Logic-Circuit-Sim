@@ -44,7 +44,7 @@ public abstract class Element
         throw new System.NotImplementedException();
     }
 
-    public void DrawConnections()
+    public virtual void DrawConnections(Graphics gr)
     {
         throw new System.NotImplementedException();
     }
@@ -55,10 +55,10 @@ public abstract class Element
     /// <returns>Returns a boolean</returns>
     public bool AreYouClicked(int x, int y)
     {
-        bool condition = (x <= (this.X + (this.Img[0].Width / 2)) && 
-                          x >= (this.X - (this.Img[0].Width / 2)) && 
-                          y <= (this.Y - (this.Img[0].Height / 2)) && 
-                          y >= (this.Y + (this.Img[0].Height / 2)));
+        bool condition = (x <= (this.X + (this.Img[0].Width )) && 
+                          x >= (this.X - (this.Img[0].Width )) && 
+                          y >= (this.Y - (this.Img[0].Height )) && 
+                          y <= (this.Y + (this.Img[0].Height )));
 
         if (condition) return true;
         else return false;
