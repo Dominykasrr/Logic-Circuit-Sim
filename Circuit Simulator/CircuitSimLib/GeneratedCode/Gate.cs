@@ -33,6 +33,16 @@ public abstract class Gate : Element
     /// </summary>
     /// <returns>Returns a boolean</returns>
     public abstract bool CalculateOutput();
-
+    public override void DrawConnections(Graphics gr)
+    {
+        foreach (InputPoint input in Input)
+            if (input.ConnectsTo != null)
+            {
+                Pen pen;
+                if (input.ConnectedElementsOutput()) pen = new Pen(Color.Green);
+                else pen = new Pen(Color.Black);
+                gr.DrawLine(pen, input.X, input.Y, input.ConnectsTo.X, input.ConnectsTo.Y);
+            }
+    }
 }
 

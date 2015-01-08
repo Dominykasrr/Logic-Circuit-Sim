@@ -161,9 +161,9 @@ namespace Circuit_Simulator
                 {
                     gr.DrawRectangle(new Pen(Color.Black), new Rectangle(e.X, e.Y, 10, 10));
                     ConnectionPoint temp = currCircuit.FindConnectionPoint(e.X, e.Y);
-                    pointToDrawLineFrom = new Point(temp.X, temp.Y);
                     if (temp != null)
                     {
+                        pointToDrawLineFrom = new Point(temp.X, temp.Y);
                         timerDrawLineToCur.Interval = 100;
                         timerDrawLineToCur.Start();
                     }
@@ -180,12 +180,7 @@ namespace Circuit_Simulator
             
             {
                 if (currCircuit.FindElement(e.X, e.Y) !=null)
-                {
-                    
-                    
-                  
-                   
-                    
+                {                    
                 }
             }
         }

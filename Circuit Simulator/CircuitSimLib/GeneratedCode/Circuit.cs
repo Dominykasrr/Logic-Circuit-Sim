@@ -173,8 +173,12 @@ public class Circuit
     {
         ConnectionPoint A = FindConnectionPoint(aX, aY);
         ConnectionPoint B = FindConnectionPoint(bX, bY);
-        if (MakeConnection(A, B)) return true;
-        else return false;
+        if (A != null && B != null)
+        {
+            if (MakeConnection(A, B)) return true;
+            else return false;
+        }
+        return false;
     }
 
 	public bool MakeConnection(ConnectionPoint A, ConnectionPoint B)
