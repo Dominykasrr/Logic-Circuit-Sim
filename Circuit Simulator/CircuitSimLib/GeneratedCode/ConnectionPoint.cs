@@ -8,12 +8,34 @@ public abstract class ConnectionPoint
     /// <summary>
     /// X coordinate of the ConnectionPoint
     /// </summary>
-    public int X { get; set; }
+    /// 
+    int x, y;
+    public int X 
+    {
+        get
+        {
+            return this.x + Owner.X;
+        }
+        set
+        {
+            this.x = value;
+        }
+    }
 
     /// <summary>
     /// X coordinate of the ConnectionPoint
     /// </summary>
-    public int Y { get; set; }
+    public int Y { 
+        get
+        {
+            return this.y + Owner.Y;
+        }
+        set
+        {
+            this.y = value;
+        }
+
+    }
 
     /// <summary>
     /// Radius of the ConnectionPoint
@@ -43,8 +65,7 @@ public abstract class ConnectionPoint
     {
         double d = Math.Sqrt(Math.Pow(x - this.X, 2) + Math.Pow(y - this.Y, 2));
 
-        if (d > this.Radius) return false;
-        else return true;
+        return (d < this.Radius);
     }
 
 }

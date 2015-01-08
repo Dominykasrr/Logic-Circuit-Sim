@@ -6,23 +6,10 @@ using System.Drawing;
 
 public class Sink : Element
 {
-    private InputPoint input;
     /// <summary>
     ///The input of the Sink
     /// </summary>
-    public InputPoint Input 
-    {
-        get
-        {
-            this.input.X = X;
-            this.input.Y = Y;
-            return this.input;
-        }
-        set
-        {
-            this.input = value;
-        } 
-    }
+    public InputPoint Input { get; set; }
 
     /// <summary>
     ///Constructor
@@ -33,7 +20,7 @@ public class Sink : Element
         this.Img = new Image[2];
         this.Img[0] = CircuitSimLib.Properties.Resources.lamp;
         this.Img[1] = CircuitSimLib.Properties.Resources.lamp_on;
-        this.Input = new InputPoint(this.X, this.Y, 25, this);
+        this.Input = new InputPoint(0, 0, 25, this);
     }
     public override void Draw(Graphics gr)
     {
@@ -43,13 +30,14 @@ public class Sink : Element
     }
     public override void DrawConnections(Graphics gr)
     {
-        if (input.ConnectsTo != null)
+        if (Input.ConnectsTo != null)
         {
             Pen pen;
-            if (Input.ConnectedElementsOutput()) pen = new Pen(Color.Green);
-            else pen = new Pen(Color.Black);
-            gr.DrawLine(pen, input.X, input.Y, input.ConnectsTo.X, input.ConnectsTo.Y);
+            if (Input.ConnectedElementsOutput()) pen = new Pen(Color.Green, 5);
+            else pen = new Pen(Color.Black, 5);
+            gr.DrawLine(pen, Input.X, Input.Y, Input.ConnectsTo.X, Input.ConnectsTo.Y);
         }
     }
+
 }
 

@@ -164,13 +164,21 @@ public class Circuit
         {
             if (this.Elements[i].AreYouClicked(x, y))
             {
-                if (this.Elements[i].GetType() == typeof(Gate))
+                if (this.Elements[i].GetType().BaseType == typeof(Gate))
                 {
                     Gate g = (Gate)this.Elements[i];
-                    if (g.Output.AreYouClicked(x, y)) return g.Output;
+
+                    if (g.Output.AreYouClicked(x, y))
+                    {
+                        return g.Output;
+                    }
+                        
                     for (int j = 0; j < g.Input.Length; j++)
                     {
-                        if (g.Input[j].AreYouClicked(x, y)) return g.Input[j];
+                        if (g.Input[j].AreYouClicked(x, y))
+                        {
+                            return g.Input[j];
+                        }
                     }
                 }
                 else if (this.Elements[i].GetType().BaseType == typeof(Source))

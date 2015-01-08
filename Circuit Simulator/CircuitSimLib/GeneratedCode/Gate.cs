@@ -43,6 +43,16 @@ public abstract class Gate : Element
                 else pen = new Pen(Color.Black);
                 gr.DrawLine(pen, input.X, input.Y, input.ConnectsTo.X, input.ConnectsTo.Y);
             }
+        if (Output.ConnectsTo != null)
+        {
+            Pen pen;
+            if (CalculateOutput()) pen = new Pen(Color.Green);
+            else pen = new Pen(Color.Black);
+            foreach (InputPoint o in Output.ConnectsTo)
+            {
+                gr.DrawLine(pen, Output.X, Output.Y, o.X, o.Y);
+            }
+        }
     }
 }
 

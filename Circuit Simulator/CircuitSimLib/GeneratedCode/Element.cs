@@ -39,15 +39,9 @@ public abstract class Element
         ElementCount++;
     }
 
-    public virtual void Draw(Graphics gr)
-    {
-        throw new System.NotImplementedException();
-    }
+    public abstract void Draw(Graphics gr);
 
-    public virtual void DrawConnections(Graphics gr)
-    {
-        throw new System.NotImplementedException();
-    }
+    public abstract void DrawConnections(Graphics gr);
 
     /// <summary>
     /// Checks if this Element was clicked

@@ -42,7 +42,7 @@ public class InputPoint : ConnectionPoint
         {
             return false;
         }
-        if (ConnectsTo.GetType() == typeof(Gate))
+        if (ConnectsTo.Owner.GetType().BaseType == typeof(Gate))
         {
             Gate temp = (Gate)ConnectsTo.Owner;
             return temp.CalculateOutput();
@@ -52,7 +52,6 @@ public class InputPoint : ConnectionPoint
             Source temp = (Source)ConnectsTo.Owner;
             return temp.State;
         }
-
         throw new Exception();
     }
 

@@ -18,10 +18,10 @@ namespace Circuit_Simulator
         Circuit currCircuit;
         Graphics gr;
         Point pointToDrawLineFrom = new Point(0,0);
-        Point pointToRemoveFrom = new Point(0, 0);
+        Point pointClicked = new Point(0, 0);
         ContextMenuStrip mnu = new ContextMenuStrip();
         ToolStripMenuItem mnuRemove = new ToolStripMenuItem("Remove");
-        
+        ToolStripMenuItem mnuToggle = new ToolStripMenuItem("Toggle");
         
        
 
@@ -29,8 +29,11 @@ namespace Circuit_Simulator
         {
             InitializeComponent();
             mnuRemove.Click += new EventHandler(mnuRemove_Click);
+            mnuToggle.Click += new EventHandler(mnuToggle_Click);
             mnu.Items.AddRange(new ToolStripItem[] { mnuRemove });
+            mnu.Items.AddRange(new ToolStripItem[] { mnuToggle });
             panel.ContextMenuStrip = mnu;
+
             gr = panel.CreateGraphics();
             currCircuit = new Circuit(gr);
             // Set images to left menu pictureboxes
@@ -153,8 +156,8 @@ namespace Circuit_Simulator
         private void panel_MouseClick(object sender, MouseEventArgs e) { }
         private void panel_MouseDown(object sender, MouseEventArgs e)
         {
-            pointToRemoveFrom.X = e.X;
-            pointToRemoveFrom.Y = e.Y;
+            pointClicked.X = e.X;
+            pointClicked.Y = e.Y;
             if(e.Button==MouseButtons.Left)
             {
                 if (pointToDrawLineFrom == new Point(0,0))
@@ -176,25 +179,23 @@ namespace Circuit_Simulator
                     panel.Refresh();
                 }
             }
-            else 
-            
-            {
-                if (currCircuit.FindElement(e.X, e.Y) !=null)
-                {                    
-                }
-            }
         }
     
         private void mnuRemove_Click(object sender, EventArgs e)
         {
             
-            currCircuit.RemoveElement(pointToRemoveFrom.X, pointToRemoveFrom.Y);
+            currCircuit.RemoveElement(pointClicked.X, pointClicked.Y);
             
             panel.Refresh();
         }
-        private void mnuCut_Click(object sender, EventArgs e)
+        private void mnuToggle_Click(object sender, EventArgs e)
         {
-
+            Element tempel = currCircuit.FindElement(pointClicked.X, pointClicked.Y);
+            if (tempel.GetType() == typeof(StaticSource))
+            {
+                StaticSource src = (StaticSource)tempel;
+                src.Toggle();
+            }
         }
         private void mnuPaste_Click(object sender, EventArgs e)
         {
