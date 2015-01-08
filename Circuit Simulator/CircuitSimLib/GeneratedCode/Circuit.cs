@@ -72,18 +72,38 @@ public class Circuit
 
 	public bool RemoveElement(int x, int y)
 	{
-        Element temp = FindElement(x, y);
+        Element temp = FindElement(x, y); // why do you go through the lists twice?
         if (temp != null)
         {
-            for (int i = 0; i < this.Elements.Count; i++)
+            if (temp.GetType() != typeof(Sink))
             {
-                if (temp == this.Elements[i])
+                for (int i = 0; i < this.Elements.Count; i++)
                 {
-                    this.Elements.RemoveAt(i);
-                    return true;
+                    if (temp == this.Elements[i])
+                    {
+                        this.Elements.RemoveAt(i);
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            else
+            {
+                for (int i = 0; i < this.Elements.Count; i++)
+                {
+                    if (temp == this.Elements[i])
+                    {
+                        this.Elements.RemoveAt(i);                    }
+                }
+                for (int i = 0; i < this.Sinks.Count; i++)
+                {
+                    if (temp == this.Sinks[i])
+                    {
+                        this.Sinks.RemoveAt(i);
+                    }
+                }
+                return true;
+            }
         }
         else return false;
 	}
