@@ -17,22 +17,15 @@ namespace Circuit_Simulator
     {
         Circuit currCircuit;
         Graphics gr;
-        Point pointToDrawLineFrom = new Point(0,0);
+        Point pointToDrawLineFrom = new Point(0, 0);
         Point pointClicked = new Point(0, 0);
-        ContextMenuStrip mnu = new ContextMenuStrip();
-        ToolStripMenuItem mnuRemove = new ToolStripMenuItem("Remove");
-        ToolStripMenuItem mnuToggle = new ToolStripMenuItem("Toggle");
-        
-       
+
+
+
 
         public MainForm()
         {
             InitializeComponent();
-            mnuRemove.Click += new EventHandler(mnuRemove_Click);
-            mnuToggle.Click += new EventHandler(mnuToggle_Click);
-            mnu.Items.AddRange(new ToolStripItem[] { mnuRemove });
-            mnu.Items.AddRange(new ToolStripItem[] { mnuToggle });
-            panel.ContextMenuStrip = mnu;
 
             gr = panel.CreateGraphics();
             currCircuit = new Circuit(gr);
@@ -45,7 +38,7 @@ namespace Circuit_Simulator
             pbSink.Image = CircuitSimLib.Properties.Resources.lamp_on;
 
             ((Control)panel).AllowDrop = true; //
-            
+
         }
 
         private void panel_DragDrop(object sender, DragEventArgs e)
@@ -59,7 +52,7 @@ namespace Circuit_Simulator
             {
                 currCircuit.DrawAll();
             }
-            
+
         }
 
         private void panel_DragEnter(object sender, DragEventArgs e)
@@ -158,9 +151,9 @@ namespace Circuit_Simulator
         {
             pointClicked.X = e.X;
             pointClicked.Y = e.Y;
-            if(e.Button==MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
-                if (pointToDrawLineFrom == new Point(0,0))
+                if (pointToDrawLineFrom == new Point(0, 0))
                 {
                     gr.DrawRectangle(new Pen(Color.Black), new Rectangle(e.X, e.Y, 10, 10));
                     ConnectionPoint temp = currCircuit.FindConnectionPoint(e.X, e.Y);
@@ -175,17 +168,35 @@ namespace Circuit_Simulator
                 {
                     timerDrawLineToCur.Stop();
                     currCircuit.MakeConnection(pointToDrawLineFrom.X, pointToDrawLineFrom.Y, e.X, e.Y);
-                    pointToDrawLineFrom = new Point(0,0);
+                    pointToDrawLineFrom = new Point(0, 0);
                     panel.Refresh();
                 }
             }
+            else if (e.Button == MouseButtons.Right)
+            {
+                Element temp = currCircuit.FindElement(e.X, e.Y);
+                if (temp != null)
+                {
+                    ContextMenuStrip mnu = new ContextMenuStrip();
+                    ToolStripMenuItem mnuRemove = new ToolStripMenuItem("Remove");
+                    ToolStripMenuItem mnuToggle = new ToolStripMenuItem("Toggle");
+                    if (temp.GetType() == typeof(StaticSource))
+                    {
+                        mnuToggle.Click += new EventHandler(mnuToggle_Click);
+                        mnu.Items.AddRange(new ToolStripItem[] { mnuToggle });
+                    }
+                    mnuRemove.Click += new EventHandler(mnuRemove_Click);
+                    mnu.Items.AddRange(new ToolStripItem[] { mnuRemove });
+                    mnu.Show(e.X, e.Y);
+                }
+            }
         }
-    
+
         private void mnuRemove_Click(object sender, EventArgs e)
         {
-            
+
             currCircuit.RemoveElement(pointClicked.X, pointClicked.Y);
-            
+
             panel.Refresh();
         }
         private void mnuToggle_Click(object sender, EventArgs e)
@@ -206,7 +217,7 @@ namespace Circuit_Simulator
             panel.Refresh();
             Point pointOnForm = panel.PointToClient(new Point(Cursor.Position.X, Cursor.Position.Y));
             gr.DrawLine(new Pen(Color.Black), pointToDrawLineFrom, pointOnForm);
-            
+
         }
 
         private void contextMenuStrip_Opening(object sender, CancelEventArgs e)

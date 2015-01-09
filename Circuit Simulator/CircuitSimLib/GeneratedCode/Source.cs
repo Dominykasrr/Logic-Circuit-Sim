@@ -36,16 +36,7 @@ public abstract class Source : Element
     }
     public override void DrawConnections(Graphics gr)
     {
-        if (output != null)
-        {
-            Pen pen;
-            if (State) pen = new Pen(Color.Green, 5);
-            else pen = new Pen(Color.Black, 5);
-            foreach (ConnectionPoint cp in output.ConnectsTo)
-            {
-                gr.DrawLine(pen, output.X, output.Y, cp.X, cp.Y);
-            }
-        }
+
     }
 }
 

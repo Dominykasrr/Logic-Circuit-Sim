@@ -7,8 +7,8 @@ using System.Drawing;
 [Serializable]
 public class Circuit
 {
-	public List<Element> Elements { get; set; }
-	public List<Sink> Sinks { get; set; }
+    public List<Element> Elements { get; set; }
+    public List<Sink> Sinks { get; set; }
     private Graphics gr;
 
     /// <summary>
@@ -21,7 +21,7 @@ public class Circuit
         this.gr = gr;
     }
 
-	public void DrawAll() 
+    public void DrawAll()
     {
         foreach (Element ele in this.Elements)
         {
@@ -29,8 +29,8 @@ public class Circuit
         }
     }
 
-	public void DrawSinksAndConnections()
-	{
+    public void DrawSinksAndConnections()
+    {
         for (int i = 0; i < this.Sinks.Count; i++)
         {
             this.Sinks[i].Draw(gr);
@@ -41,11 +41,11 @@ public class Circuit
         {
             this.Elements[i].DrawConnections(gr);
         }
-	}
+    }
 
-	public bool MoveElement(Element el, int x, int y)
-	{
-        if(FindElement(x,y)==null)
+    public bool MoveElement(Element el, int x, int y)
+    {
+        if (FindElement(x, y) == null)
         {
             el.X = x;
             el.Y = y;
@@ -53,7 +53,7 @@ public class Circuit
         }
         return false;
 
-	}
+    }
 
     public bool MoveElement(int iX, int iY, int nX, int nY)
     {
@@ -70,13 +70,41 @@ public class Circuit
         else return false;
     }
 
-	public bool RemoveElement(int x, int y)
-	{
+    public bool RemoveElement(int x, int y)
+    {
         Element temp = FindElement(x, y); // why do you go through the lists twice?
         if (temp != null)
         {
             if (temp.GetType() != typeof(Sink))
             {
+                foreach (Element e in Elements)
+                {
+                    if (e.GetType().BaseType == typeof(Gate))
+                    {
+                        Gate gt = (Gate)e;
+                        foreach (InputPoint ip in gt.Input)
+                        {
+                            if (ip.ConnectsTo != null)
+                            {
+                                if (ip.ConnectsTo.Owner == temp)
+                                {
+                                    ip.ConnectsTo = null;
+                                }
+                            }
+                        }
+                    }
+                    if(e.GetType() == typeof(Sink))
+                    {
+                        Sink snk = (Sink)e;
+                        if (snk.Input.ConnectsTo != null)
+                        {
+                            if (snk.Input.ConnectsTo.Owner == temp)
+                            {
+                                snk.Input.ConnectsTo = null;
+                            }
+                        }
+                    }
+                }
                 for (int i = 0; i < this.Elements.Count; i++)
                 {
                     if (temp == this.Elements[i])
@@ -87,13 +115,14 @@ public class Circuit
                 }
                 return false;
             }
-            else
+            else // its a sink
             {
                 for (int i = 0; i < this.Elements.Count; i++)
                 {
                     if (temp == this.Elements[i])
                     {
-                        this.Elements.RemoveAt(i);                    }
+                        this.Elements.RemoveAt(i);
+                    }
                 }
                 for (int i = 0; i < this.Sinks.Count; i++)
                 {
@@ -106,12 +135,12 @@ public class Circuit
             }
         }
         else return false;
-	}
+    }
 
-	public bool AddElement(String type, int x, int y)
-	{
-        Element temp=null;
-        switch(type)
+    public bool AddElement(String type, int x, int y)
+    {
+        Element temp = null;
+        switch (type)
         {
             case "AND":
                 temp = new AndGate();
@@ -147,19 +176,19 @@ public class Circuit
             return true;
         }
         return false;
-	}
+    }
 
-	public Element FindElement(int x, int y)
-	{
+    public Element FindElement(int x, int y)
+    {
         for (int i = 0; i < this.Elements.Count; i++)
         {
             if (this.Elements[i].AreYouClicked(x, y)) return this.Elements[i];
         }
         return null;
-	}
+    }
 
-	public ConnectionPoint FindConnectionPoint(int x, int y)
-	{
+    public ConnectionPoint FindConnectionPoint(int x, int y)
+    {
         for (int i = 0; i < this.Elements.Count; i++)
         {
             if (this.Elements[i].AreYouClicked(x, y))
@@ -172,7 +201,7 @@ public class Circuit
                     {
                         return g.Output;
                     }
-                        
+
                     for (int j = 0; j < g.Input.Length; j++)
                     {
                         if (g.Input[j].AreYouClicked(x, y))
@@ -195,7 +224,7 @@ public class Circuit
             }
         }
         return null;
-	}
+    }
 
     public bool MakeConnection(int aX, int aY, int bX, int bY)
     {
@@ -209,15 +238,14 @@ public class Circuit
         return false;
     }
 
-	public bool MakeConnection(ConnectionPoint A, ConnectionPoint B)
-	{
+    public bool MakeConnection(ConnectionPoint A, ConnectionPoint B)
+    {
         if (A.GetType() == B.GetType()) return false;
         else if (A.GetType() == typeof(OutputPoint))
         {
             OutputPoint temp1 = (OutputPoint)A;
             InputPoint temp2 = (InputPoint)B;
 
-            temp1.ConnectsTo.Add(B);
             temp2.ConnectsTo = A;
             return true;
         }
@@ -227,7 +255,6 @@ public class Circuit
             OutputPoint temp2 = (OutputPoint)B;
 
             temp1.ConnectsTo = B;
-            temp2.ConnectsTo.Add(A);
             return true;
         }
         else throw new Exception();
