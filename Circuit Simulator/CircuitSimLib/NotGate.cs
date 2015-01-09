@@ -16,10 +16,9 @@ public class NotGate : Gate
     public NotGate()
     {
         this.Input = new InputPoint[1];
-        this.Input[0] = new InputPoint(this.X, this.Y, 10, this);
+        this.Input[0] = new InputPoint(-45, 0, 10, this);
         
-
-        this.Output = new OutputPoint(this.X, this.Y, 10, this);
+        this.Output = new OutputPoint(44, 0, 20, this);
 
         this.Img[0] = CircuitSimLib.Properties.Resources.inverter;
     }

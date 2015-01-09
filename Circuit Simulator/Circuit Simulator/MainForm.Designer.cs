@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel = new System.Windows.Forms.Panel();
-            this.buttonAND = new System.Windows.Forms.Button();
             this.pbStaticSource = new System.Windows.Forms.PictureBox();
             this.pbAnd = new System.Windows.Forms.PictureBox();
             this.pbOr = new System.Windows.Forms.PictureBox();
@@ -60,65 +59,62 @@
             this.panel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_MouseClick);
             this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
-            // buttonAND
-            // 
-            this.buttonAND.Location = new System.Drawing.Point(12, 12);
-            this.buttonAND.Name = "buttonAND";
-            this.buttonAND.Size = new System.Drawing.Size(100, 50);
-            this.buttonAND.TabIndex = 1;
-            this.buttonAND.UseVisualStyleBackColor = true;
-            this.buttonAND.Click += new System.EventHandler(this.buttonAND_Click);
-            // 
             // pbStaticSource
             // 
-            this.pbStaticSource.Location = new System.Drawing.Point(13, 68);
+            this.pbStaticSource.Location = new System.Drawing.Point(12, 12);
             this.pbStaticSource.Name = "pbStaticSource";
-            this.pbStaticSource.Size = new System.Drawing.Size(100, 50);
+            this.pbStaticSource.Size = new System.Drawing.Size(100, 60);
+            this.pbStaticSource.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStaticSource.TabIndex = 3;
             this.pbStaticSource.TabStop = false;
             this.pbStaticSource.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbStaticSource_MouseDown);
             // 
             // pbAnd
             // 
-            this.pbAnd.Location = new System.Drawing.Point(13, 237);
+            this.pbAnd.Location = new System.Drawing.Point(12, 210);
             this.pbAnd.Name = "pbAnd";
             this.pbAnd.Size = new System.Drawing.Size(100, 50);
+            this.pbAnd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAnd.TabIndex = 3;
             this.pbAnd.TabStop = false;
             this.pbAnd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbAnd_MouseDown);
             // 
             // pbOr
             // 
-            this.pbOr.Location = new System.Drawing.Point(12, 293);
+            this.pbOr.Location = new System.Drawing.Point(13, 266);
             this.pbOr.Name = "pbOr";
             this.pbOr.Size = new System.Drawing.Size(100, 50);
+            this.pbOr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbOr.TabIndex = 3;
             this.pbOr.TabStop = false;
             this.pbOr.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbOr_MouseDown);
             // 
             // pbNot
             // 
-            this.pbNot.Location = new System.Drawing.Point(12, 349);
+            this.pbNot.Location = new System.Drawing.Point(13, 322);
             this.pbNot.Name = "pbNot";
             this.pbNot.Size = new System.Drawing.Size(100, 50);
+            this.pbNot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbNot.TabIndex = 3;
             this.pbNot.TabStop = false;
             this.pbNot.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbNot_MouseDown);
             // 
             // pbDynamicSource
             // 
-            this.pbDynamicSource.Location = new System.Drawing.Point(12, 124);
+            this.pbDynamicSource.Location = new System.Drawing.Point(13, 78);
             this.pbDynamicSource.Name = "pbDynamicSource";
-            this.pbDynamicSource.Size = new System.Drawing.Size(100, 50);
+            this.pbDynamicSource.Size = new System.Drawing.Size(100, 60);
+            this.pbDynamicSource.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbDynamicSource.TabIndex = 3;
             this.pbDynamicSource.TabStop = false;
             this.pbDynamicSource.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbDynamicSource_MouseDown);
             // 
             // pbSink
             // 
-            this.pbSink.Location = new System.Drawing.Point(13, 181);
+            this.pbSink.Location = new System.Drawing.Point(13, 144);
             this.pbSink.Name = "pbSink";
-            this.pbSink.Size = new System.Drawing.Size(100, 50);
+            this.pbSink.Size = new System.Drawing.Size(100, 60);
+            this.pbSink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbSink.TabIndex = 4;
             this.pbSink.TabStop = false;
             this.pbSink.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbSink_MouseDown);
@@ -139,7 +135,6 @@
             this.Controls.Add(this.pbAnd);
             this.Controls.Add(this.pbDynamicSource);
             this.Controls.Add(this.pbStaticSource);
-            this.Controls.Add(this.buttonAND);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -161,7 +156,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Button buttonAND;
         private System.Windows.Forms.PictureBox pbStaticSource;
         private System.Windows.Forms.PictureBox pbAnd;
         private System.Windows.Forms.PictureBox pbOr;

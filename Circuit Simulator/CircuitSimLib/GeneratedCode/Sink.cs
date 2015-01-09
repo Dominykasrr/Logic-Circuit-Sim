@@ -33,8 +33,8 @@ public class Sink : Element
         if (Input.ConnectsTo != null)
         {
             Pen pen;
-            if (Input.ConnectedElementsOutput()) pen = new Pen(Color.Green, 5);
-            else pen = new Pen(Color.Black, 5);
+            if (Input.ConnectedElementsOutput()) pen = new Pen(Color.Green, 2);
+            else pen = new Pen(Color.Black, 2);
             gr.DrawLine(pen, Input.X, Input.Y, Input.ConnectsTo.X, Input.ConnectsTo.Y);
         }
     }

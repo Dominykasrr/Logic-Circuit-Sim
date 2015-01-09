@@ -16,10 +16,9 @@ public class NAndGate : Gate
     public NAndGate()
     {
         this.Input = new InputPoint[2];
-        this.Input[0] = new InputPoint(this.X, this.Y, 10, this);
-        this.Input[1] = new InputPoint(this.X, this.Y, 10, this);
-
-        this.Output = new OutputPoint(this.X, this.Y, 10, this);
+        this.Input[0] = new InputPoint(-45, -9, 10, this);
+        this.Input[1] = new InputPoint(-45, 8, 10, this);
+        this.Output = new OutputPoint(44, 0, 20, this);
 
         this.Img[0] = CircuitSimLib.Properties.Resources.nand;
     }

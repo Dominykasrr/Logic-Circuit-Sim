@@ -39,8 +39,8 @@ public abstract class Gate : Element
             if (input.ConnectsTo != null)
             {
                 Pen pen;
-                if (input.ConnectedElementsOutput()) pen = new Pen(Color.Green);
-                else pen = new Pen(Color.Black);
+                if (input.ConnectedElementsOutput()) pen = new Pen(Color.Green,2);
+                else pen = new Pen(Color.Black,2);
                 gr.DrawLine(pen, input.X, input.Y, input.ConnectsTo.X, input.ConnectsTo.Y);
             }
     }

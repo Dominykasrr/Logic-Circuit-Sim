@@ -19,8 +19,8 @@ namespace Circuit_Simulator
         Graphics gr;
         Point pointToDrawLineFrom = new Point(0, 0);
         Point pointClicked = new Point(0, 0);
-
-
+        Element toMove;
+        ConnectionPoint temp_input;
 
 
         public MainForm()
@@ -153,7 +153,19 @@ namespace Circuit_Simulator
             pointClicked.Y = e.Y;
             if (e.Button == MouseButtons.Left)
             {
-                if (pointToDrawLineFrom == new Point(0, 0))
+                
+                if(toMove!=null)
+                {
+                    if (currCircuit.MoveElement(toMove, e.X, e.Y))
+                    {
+                        toMove = null;
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Click another palace");
+                    }
+                }
+                if (pointToDrawLineFrom == new Point(0, 0) && toMove == null)
                 {
                     gr.DrawRectangle(new Pen(Color.Black), new Rectangle(e.X, e.Y, 10, 10));
                     ConnectionPoint temp = currCircuit.FindConnectionPoint(e.X, e.Y);
@@ -171,23 +183,38 @@ namespace Circuit_Simulator
                     pointToDrawLineFrom = new Point(0, 0);
                     panel.Refresh();
                 }
+                panel.Refresh();
             }
             else if (e.Button == MouseButtons.Right)
             {
                 Element temp = currCircuit.FindElement(e.X, e.Y);
+                temp_input = currCircuit.FindConnectionPoint(e.X,e.Y);
                 if (temp != null)
                 {
                     ContextMenuStrip mnu = new ContextMenuStrip();
                     ToolStripMenuItem mnuRemove = new ToolStripMenuItem("Remove");
                     ToolStripMenuItem mnuToggle = new ToolStripMenuItem("Toggle");
+                    ToolStripMenuItem mnuMove = new ToolStripMenuItem("Move");
+                    ToolStripMenuItem mnuConnections = new ToolStripMenuItem("Remove Connection");
+
                     if (temp.GetType() == typeof(StaticSource))
                     {
                         mnuToggle.Click += new EventHandler(mnuToggle_Click);
                         mnu.Items.AddRange(new ToolStripItem[] { mnuToggle });
                     }
+                    mnuMove.Click += new EventHandler(mnuMove_Click);
                     mnuRemove.Click += new EventHandler(mnuRemove_Click);
+                    
                     mnu.Items.AddRange(new ToolStripItem[] { mnuRemove });
+                    mnu.Items.AddRange(new ToolStripItem[] { mnuMove });
+                    
                     mnu.Show(e.X, e.Y);
+                    if (temp_input !=null && temp_input.GetType() == typeof(InputPoint) )
+                    {
+                        mnuConnections.Click += new EventHandler(mnuConnections_Click);
+                        mnu.Items.AddRange(new ToolStripItem[] { mnuConnections });
+                        
+                    }
                 }
             }
         }
@@ -206,10 +233,24 @@ namespace Circuit_Simulator
             {
                 StaticSource src = (StaticSource)tempel;
                 src.Toggle();
+                panel.Refresh();
             }
+
         }
-        private void mnuPaste_Click(object sender, EventArgs e)
+        private void mnuConnections_Click(object sender, EventArgs e)
         {
+           
+            
+                InputPoint p = (InputPoint)temp_input;
+                p.ConnectsTo = null;
+            
+            
+            panel.Refresh();
+        }
+        private void mnuMove_Click(object sender, EventArgs e)
+        {
+            toMove = currCircuit.FindElement(pointClicked.X, pointClicked.Y);
+            
 
         }
         private void timerDrawLineToCur_Tick(object sender, EventArgs e)
@@ -224,6 +265,8 @@ namespace Circuit_Simulator
         {
 
         }
+
+       
 
 
 
